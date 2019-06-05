@@ -24,16 +24,15 @@
                         <img src="_imgs/logo-pontoDigital.png" alt="Imagem representativa do planeta terra em cor azul com uma imagem em cor amarela representando o logo do produto Ponto Digital">
                     </div>
                     <i id="menu-bar" class="fas fa-bars"></i>
-
                     <nav class="menu-navegacao">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="sobreNos.html">Sobre nós</a></li>
-                            <li><a href="faq.html">Faq</a></li>
-                            <li><a href="contatos.html">Contatos</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#" class="autenticacao">Login</a></li>
-                            <li><a href="#" class="autenticacao">Sign in</a></li>
+                            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li><a asp-controller="Sobre" asp-action="Index">Sobre nós</a></li>
+                            <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
+                            <li><a asp-controller="Contatos" asp-action="Index">Contatos</a></li>
+                            <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+                            <li><a asp-controller="Login" asp-action="Index" class="autenticacao">Login</a></li>
+                            <li><a asp-controller="Login" asp-action="Index" class="autenticacao">Sign in</a></li>
                         </ul>
                     </nav>
                 </div>
