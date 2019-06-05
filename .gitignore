@@ -1,3 +1,4 @@
 .vscode
-src/pontoDigital/obj
+src/pontoDigital/obj/
+src/pontoDigital/obj/Debug/
 src/pontoDigital/bin
