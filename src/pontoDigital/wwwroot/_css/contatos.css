@@ -1,0 +1,112 @@
+.contatos-container {
+    background: EEF2F3;
+    height: 100%;
+}
+
+.contatos-conteudo {
+    height: 100%;
+}
+
+.contatos {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.background-formulario {
+    position: relative;
+    background: #3E3E3E;
+    height: 100%;
+    width: 35%;
+}
+
+.formulario-container {
+    z-index: 1;
+    position: absolute;
+    top: 20%;
+    left: -25%;
+    background: #FFF;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
+    padding: 2em;
+    width: 150%;
+    height: 60%;
+}
+
+.formulario-container form {
+    margin-top: 2em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+form input[type="text"] {
+    border: 1px solid #3E3E3E;
+    border-radius: 10px;
+    height: 30px;
+    padding: 1em;
+}
+
+form input[type="email"] {
+    border: 1px solid #3E3E3E;
+    border-radius: 10px;
+    height: 30px;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+form input[type="submit"] {
+    color: #FFF;
+    border: 1px solid #F2A620;
+    background: #F2A620;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+    font-size:1.5em;
+    font-weight: bold;
+    height: 80px;
+    width: 216px;
+    position: absolute;
+    top: 85%;
+    left: 110%;
+}
+
+form textarea {
+    border: 1px solid #3E3E3E;
+    border-radius: 10px;
+    height: 150px;
+    resize: none;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.banner-comunicacao {
+    padding: 2em;
+    text-align: center;
+    color: #FFF;
+    font-size: 2em;
+    width: 100%;
+    height: 150px;
+    background: #00347F;
+    margin-top:4em;
+    
+}
+
+.formulario-container h2 {
+    color: #3E3E3E;
+    font-size: 2em;
+    text-align: left;
+}
+
+.mapa {
+    border: 1px solid rgba(0, 0, 0, .5);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .5);
+    z-index: 5;
+    position: absolute;
+    top: 8%;
+    left: 60%;
+}
+
+.mapa iframe {
+    width: 650px;
+    height: 350px;
+}
