@@ -37,7 +37,7 @@ namespace pontoDigital
                     //Definindo o nome padrão da rota
                     name: "default",
                     //Definindo o template da rota padrao da aplicação
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}");
             });
         }
     }
