@@ -6,13 +6,13 @@
         </div>
 
         <div>
-            <label for="lbl-dataNascimento">Data de nascimento:</label>
-            <input type="date" name="dataNascimento" />
+            <label for="lbl-genero">Genero:</label>
+            <input type="text" name="genero" />
         </div>
 
         <div>
-            <label for="lbl-email">E-mail:</label>
-            <input type="mail" name="eMail" />
+            <label for="lbl-dataNascimento">Data de nascimento:</label>
+            <input type="date" name="dataNascimento" />
         </div>
 
         <div>
@@ -21,14 +21,24 @@
         </div>
 
         <div>
-            <label for="lbl-genero">Gênero:</label>
-            <input type="text" name="genero" />
-        </div>
-
-        <div>
             <label for="lbl-telefone">Telefone:</label>
             <input type="tel" name="telefone" />
         </div>
+
+        <div>
+            <select value="permissao" name="permissao">
+                <option disabled="disabled" selected="selected">Selecione tipo de privilegio</option>
+                <option value="adm">Administrador</option>
+                <option value="usr">Usuário</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="lbl-email">E-mail:</label>
+            <input type="mail" name="eMail" />
+        </div>
+
+
 
         <div>
             <label for="lbl-senha">Senha:</label>
