@@ -23,16 +23,13 @@ namespace pontoDigital.Controllers
        [HttpPost]
         public IActionResult CadastrarUsuario(IFormCollection frmCadastrarUsuario)
         {
-            
-            string permissao = frmCadastrarUsuario["permissao"];
             Usuario usuario = new Usuario
             (
             nome: frmCadastrarUsuario["nome"],
             genero: frmCadastrarUsuario["genero"],
             dataNascimento: DateTime.Parse(frmCadastrarUsuario["dataNascimento"]),
             endereco: frmCadastrarUsuario["endereco"],
-            
-            permissao: int.Parse(frmCadastrarUsuario["permissao"]),
+            permissao: frmCadastrarUsuario["permissao"],
             email: frmCadastrarUsuario["email"],
             telefone: frmCadastrarUsuario["telefone"],
             senha:frmCadastrarUsuario["senha"]

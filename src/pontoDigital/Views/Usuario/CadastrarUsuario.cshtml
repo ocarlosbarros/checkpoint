@@ -1,13 +1,15 @@
 <section class="full-screen">
-    <form method="POST" action="Usuario/CadastrarUsuario">
+    <form method="POST" action='@Url.Action("CadastrarUsuario", "Usuario")'>
         <div>
             <label for="lbl-nome">Nome:</label>
             <input type="text" name="nome" />
         </div>
 
         <div>
-            <label for="lbl-genero">Genero:</label>
-            <input type="text" name="genero" />
+            <label for="lbl-genero">Genero:</label><br/>
+            <input type="radio" name="genero" value="masculino" checked="checked">Masculino<br/>
+            <input type="radio" name="genero" value="feminino">Feminino<br/>
+            <input type="radio" name="genero" value="outro">Outro<br/>
         </div>
 
         <div>
@@ -27,9 +29,9 @@
 
         <div>
             <select name="permissao">
-                <option disabled="disabled">Selecione</option>
-                <option value="adm">Administrador</option>
-                <option value="usr">Usuário</option>
+                <option disabled="disabled">Tipo de Conta</option>
+                <option name="permissao" value="adm">Administrador</option>
+                <option name="permissao" value="usr">Usuário</option>
             </select>
         </div>
 

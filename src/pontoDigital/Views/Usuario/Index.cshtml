@@ -6,8 +6,10 @@
         </div>
 
         <div>
-            <label for="lbl-genero">Genero:</label>
-            <input type="text" name="genero" />
+            <label for="lbl-genero">Genero:</label><br/>
+            <input type="radio" name="genero" value="masculino" checked="checked">Masculino<br/>
+            <input type="radio" name="genero" value="feminino">Feminino<br/>
+            <input type="radio" name="genero" value="outro">Outro<br/>
         </div>
 
         <div>
@@ -26,10 +28,10 @@
         </div>
 
         <div>
-            <select value="permissao" name="permissao">
-                <option disabled="disabled" selected="selected">Selecione tipo de privilegio</option>
-                <option value="adm">Administrador</option>
-                <option value="usr">Usuário</option>
+            <select>
+                <option value="" disabled="disabled" selected="selected">Tipo de Conta</option>
+                <option name="permissao" value="adm">Administrador</option>
+                <option name="permissao" value="usr">Usuário</option>
             </select>
         </div>
 

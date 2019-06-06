@@ -14,14 +14,14 @@ namespace pontoDigital.Models
         public string Telefone { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public int Permissao {get;set;}
+        public string Permissao {get;set;}
         #endregion
 
         #region Construtores
         public Usuario(){}//Construtor Default
         
         //Construtor inicializando Propriedades exceto ID
-        public Usuario(string nome, string genero, DateTime dataNascimento, string endereco, string telefone, int permissao, string email, string senha)
+        public Usuario(string nome, string genero, DateTime dataNascimento, string endereco, string telefone, string permissao, string email, string senha)
         {
             this.Nome = nome;
             this.Genero = genero;
