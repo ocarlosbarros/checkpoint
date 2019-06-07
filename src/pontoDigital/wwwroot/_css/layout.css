@@ -379,12 +379,12 @@ section>h2 {
     padding-top:1.5em;
 }
 
-.comentarios .botao-padrao {
-    margin: 4em auto;
+.frm-add-comentario{
+    display:flex;
+    width: 10%;
+    height: 10%;
+    margin: auto;
 }
-
-
-
 .comentarios-item {
     background: #FFF;
     border: 1px solid #FFF;

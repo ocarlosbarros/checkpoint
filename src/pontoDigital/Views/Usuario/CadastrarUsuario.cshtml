@@ -1,3 +1,4 @@
+@model pontoDigital.Models.Usuario
 <section class="full-screen">
     <form method="POST" action='@Url.Action("CadastrarUsuario", "Usuario")'>
         <div>
@@ -27,7 +28,7 @@
             <input type="tel" name="telefone" />
         </div>
         <div>
-            <!-- <select asp-for="EnumPermissoes" asp-items="@ViewBag.Permissoes"></select>-->
+            <select asp-for="Permissao" asp-items="ViewBag.Permissoes"></select>
         </div>
 
         <div>
