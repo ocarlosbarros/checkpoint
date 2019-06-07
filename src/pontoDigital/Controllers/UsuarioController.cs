@@ -13,7 +13,6 @@ namespace pontoDigital.Controllers
     {
         #region "Imports" do Repository
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
-        
         #endregion
 
         #region Rotas da Aplicação

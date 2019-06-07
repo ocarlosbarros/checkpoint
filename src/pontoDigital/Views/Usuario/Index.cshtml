@@ -1,4 +1,4 @@
-@model ponto
+@model pontoDigital.Models.Usuario
 <section class="full-screen">
     <form method="POST" action="Usuario/CadastrarUsuario">
         <div>
@@ -29,7 +29,7 @@
         </div>
 
         <div>
-            <select asp-for="EnumPermissoes" asp-items="ViewBag.Permissoes"></select>
+            <select asp-for="Permissao" asp-items="ViewBag.Permissoes"></select>
         </div>
 
 
