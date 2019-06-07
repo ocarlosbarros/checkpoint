@@ -26,13 +26,8 @@
             <label for="lbl-telefone">Telefone:</label>
             <input type="tel" name="telefone" />
         </div>
-
         <div>
-            <select name="permissao">
-                <option disabled="disabled">Tipo de Conta</option>
-                <option name="permissao" value="adm">Administrador</option>
-                <option name="permissao" value="usr">Usuário</option>
-            </select>
+        <select asp-for="Usuario" asp-items="ViewBag.Permissoes"></select>
         </div>
 
         <div>

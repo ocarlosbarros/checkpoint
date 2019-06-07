@@ -1,3 +1,4 @@
+@model 
 <section class="full-screen">
     <form method="POST" action="Usuario/CadastrarUsuario">
         <div>
@@ -28,12 +29,9 @@
         </div>
 
         <div>
-            <select>
-                <option value="" disabled="disabled" selected="selected">Tipo de Conta</option>
-                <option name="permissao" value="adm">Administrador</option>
-                <option name="permissao" value="usr">Usuário</option>
-            </select>
+            <select asp-for="EnumPermissoes" asp-items="ViewBag.Permissoes"></select>
         </div>
+
 
         <div>
             <label for="lbl-email">E-mail:</label>
