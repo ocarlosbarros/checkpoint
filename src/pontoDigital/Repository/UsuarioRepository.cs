@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using pontoDigital.Enums;
 using pontoDigital.Models;
 
 namespace pontoDigital.Repository
@@ -44,6 +46,62 @@ namespace pontoDigital.Repository
             string linha = $"ID={controleID};nome={usuario.Nome};genero={usuario.Genero};data_nascimento={usuario.DataNascimento};endereco={usuario.Endereco};telefone={usuario.Telefone};permissao={usuario.Permissao};email={usuario.Email};senha={usuario.Senha}\n";
 
             return linha;
+        }
+
+        private string[] ObeterRegistrosCSV(string PATH)
+        {
+            return File.ReadAllLines(PATH);
+                        
+        }
+
+        public Usuario BuscarPor(string email)
+        {
+            foreach (var item in ObeterRegistrosCSV(PATH))
+            {
+                if (email.Equals(ExtrairCampo("email", item)))
+                {
+                    return ConverterEmObjeto(item);
+                }
+            }
+
+            return null;
+        }
+
+        private string ExtrairCampo(string nomeCampo, string linha)
+        {
+            var chave = nomeCampo;
+            var indiceInical = linha.IndexOf(chave);
+            var indiceFinal = linha.IndexOf(";", indiceInical);
+            var valor = "";
+
+            if(indiceFinal != -1)
+            {
+                valor = linha.Substring(indiceInical, indiceFinal - indiceInical);
+            }else
+                {
+                    valor = linha.Substring(indiceInical);
+                }
+
+            Console.WriteLine($"Campo[{nomeCampo}] e valor {valor}");
+
+            return valor.Replace(nomeCampo + "=", "");
+        }
+
+        private Usuario ConverterEmObjeto(string registro)
+        {
+            Usuario usuario = new Usuario();
+            Console.WriteLine("REGISTRO" + registro);
+            usuario.ID = int.Parse(ExtrairCampo("ID", registro));
+            usuario.Nome = ExtrairCampo("nome", registro);
+            usuario.Genero = ExtrairCampo("genero", registro);
+            usuario.DataNascimento = DateTime.Parse(ExtrairCampo("data_nascimento", registro));
+            usuario.Endereco = ExtrairCampo("endereco", registro);
+            usuario.Permissao = (EnumPermissao) Enum.Parse(typeof(EnumPermissao),ExtrairCampo("permissao", registro));
+            usuario.Email = ExtrairCampo("email", registro);
+            usuario.Telefone = ExtrairCampo("telefone", registro);
+            usuario.Senha = ExtrairCampo("senha", registro);
+
+            return usuario;
         }
     }
 }

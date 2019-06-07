@@ -79,13 +79,6 @@ namespace pontoDigital.Controllers
             ViewBag.titulo = "Cadastro";
             return View();
         }
-
-        [HttpGet]
-        public IActionResult LoginUsuario()
-        {
-            return View();
-        }
         #endregion
-        
     }
 }
