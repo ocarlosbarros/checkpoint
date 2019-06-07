@@ -35,7 +35,7 @@ namespace pontoDigital.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return RedirectToAction("Index", "Usuario");
+            return RedirectToAction("CadastrarUsuario", "Usuario");
 
         }
     }
