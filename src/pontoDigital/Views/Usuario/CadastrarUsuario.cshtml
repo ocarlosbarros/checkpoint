@@ -3,29 +3,29 @@
     <form method="POST" action='@Url.Action("CadastrarUsuario", "Usuario")'>
         <div>
             <label for="lbl-nome">Nome:</label>
-            <input type="text" name="nome" />
+            <input type="text" name="nome"  minlength="1" maxlength="80"required/>
         </div>
 
         <div>
             <label for="lbl-genero">Genero:</label><br/>
-            <input type="radio" name="genero" value="masculino" checked="checked">Masculino<br/>
+            <input type="radio" name="genero" value="masculino" checked="checked" required>Masculino<br/>
             <input type="radio" name="genero" value="feminino">Feminino<br/>
             <input type="radio" name="genero" value="outro">Outro<br/>
         </div>
 
         <div>
             <label for="lbl-dataNascimento">Data de nascimento:</label>
-            <input type="date" name="dataNascimento" />
+            <input type="date" name="dataNascimento" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" required/>
         </div>
 
         <div>
             <label for="lbl-endereco">Endereço:</label>
-            <input type="text" name="endereco" />
+            <input type="text" name="endereco" required/>
         </div>
 
         <div>
             <label for="lbl-telefone">Telefone:</label>
-            <input type="tel" name="telefone" />
+            <input type="tel" name="telefone" required/>
         </div>
         <div>
             <select asp-for="Permissao" asp-items="ViewBag.Permissoes"></select>
@@ -33,14 +33,12 @@
 
         <div>
             <label for="lbl-email">E-mail:</label>
-            <input type="mail" name="eMail" />
+            <input type="mail" name="eMail" pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
         </div>
-
-
 
         <div>
             <label for="lbl-senha">Senha:</label>
-            <input type="password" name="senha" />
+            <input type="password" name="senha" minlength="6"  required/>
         </div>
 
         <button type="submit">Cadastrar</button>

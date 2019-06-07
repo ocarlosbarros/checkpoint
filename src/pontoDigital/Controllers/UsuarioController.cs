@@ -17,7 +17,7 @@ namespace pontoDigital.Controllers
 
         #region Rotas da Aplicação
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult CadastrarUsuario()
         {
             //SelectListItem representa o  componente SELECT que será renderizado no html
             var permissoesList = new List<SelectListItem>();//Cria uma lista select
