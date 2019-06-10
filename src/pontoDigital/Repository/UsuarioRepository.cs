@@ -6,7 +6,7 @@ using pontoDigital.Models;
 
 namespace pontoDigital.Repository
 {
-    public class UsuarioRepository
+    public class UsuarioRepository : BaseRepository
     {
         private const string PATH = "Data/Usuarios.csv";//Caminho onde serão salvo os arquivos da aplicação
         private const string PATH_INDEX = "Data/Cliente_Id.csv";
@@ -47,16 +47,9 @@ namespace pontoDigital.Repository
 
             return linha;
         }
-
-        private string[] ObeterRegistrosCSV(string PATH)
-        {
-            return File.ReadAllLines(PATH);
-                        
-        }
-
         public Usuario BuscarPor(string email)
         {
-            foreach (var item in ObeterRegistrosCSV(PATH))
+            foreach (var item in ObterRegistrosCSV(PATH))
             {
                 if (email.Equals(ExtrairCampo("email", item)))
                 {
@@ -66,27 +59,6 @@ namespace pontoDigital.Repository
 
             return null;
         }
-
-        private string ExtrairCampo(string nomeCampo, string linha)
-        {
-            var chave = nomeCampo;
-            var indiceInical = linha.IndexOf(chave);
-            var indiceFinal = linha.IndexOf(";", indiceInical);
-            var valor = "";
-
-            if(indiceFinal != -1)
-            {
-                valor = linha.Substring(indiceInical, indiceFinal - indiceInical);
-            }else
-                {
-                    valor = linha.Substring(indiceInical);
-                }
-
-            Console.WriteLine($"Campo[{nomeCampo}] e valor {valor}");
-
-            return valor.Replace(nomeCampo + "=", "");
-        }
-
         private Usuario ConverterEmObjeto(string registro)
         {
             Usuario usuario = new Usuario();
