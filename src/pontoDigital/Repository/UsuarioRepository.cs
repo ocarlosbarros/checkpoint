@@ -9,7 +9,7 @@ namespace pontoDigital.Repository
     public class UsuarioRepository : BaseRepository
     {
         private const string PATH = "Data/Usuarios.csv";//Caminho onde serão salvo os arquivos da aplicação
-        private const string PATH_INDEX = "Data/Cliente_Id.csv";
+        private const string PATH_INDEX = "Data/Usuario_Id.csv";
         private uint controleID = 0;
         private List<Usuario> usuariosList = new List<Usuario>();
 

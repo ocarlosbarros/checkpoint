@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using pontoDigital.Models;
@@ -7,7 +8,7 @@ namespace pontoDigital.Repository
     public class ComentarioRepository : BaseRepository
     {
         private const string PATH = "Data/Comentarios.csv";
-        private const string PATH_INDEX = "Data/Comentarios.csv";
+        private const string PATH_INDEX = "Data/Comentario_Id.csv";
 
         private uint controleID = 0;
         private List<Comentario> comentariosList = new List<Comentario>();
@@ -42,6 +43,7 @@ namespace pontoDigital.Repository
 
         private string CriarCSV(Comentario comentario)
         {
+            comentario.dataCriacao = DateTime.Now;
             string linha = $"ID={controleID};nome={comentario.Usuario.Nome};comentario={comentario.textoComentario};data_criacao={comentario.dataCriacao};\n";
 
             return linha;

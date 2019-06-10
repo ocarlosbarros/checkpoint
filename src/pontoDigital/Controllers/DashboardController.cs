@@ -24,7 +24,7 @@ namespace pontoDigital.Controllers
             comentario.Usuario = usuario;
             comentario.textoComentario = frmAddComentario["comentario"];
 
-            comentarioRepository.AdicionarComentario(usuario);
+            comentarioRepository.AdicionarComentario(comentario);
             return View();
         }
     }
