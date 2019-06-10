@@ -32,7 +32,7 @@ namespace pontoDigital.Controllers
                 HttpContext.Session.SetString(SESSION_EMAIL, email);
                 HttpContext.Session.SetString(SESSION_USUARIO, usuario.Nome); 
                 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
 
             return RedirectToAction("CadastrarUsuario", "Usuario");
