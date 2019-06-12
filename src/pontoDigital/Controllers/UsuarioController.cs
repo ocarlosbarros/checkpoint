@@ -13,6 +13,8 @@ namespace pontoDigital.Controllers
     {
         #region "Imports" do Repository
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
+        private ComentarioRepository comentarioRepository = new ComentarioRepository();
+
         #endregion
 
         #region Rotas da Aplicação
@@ -77,6 +79,27 @@ namespace pontoDigital.Controllers
             usuarioRepository.Cadastrar(usuario);
 
             ViewBag.titulo = "Cadastro";
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult CadastrarComentario()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CadastrarComentario(IFormCollection frmAddComentario)
+        {
+            Usuario usuario = new Usuario();
+            usuario.Nome = frmAddComentario["nome"];
+            
+            Comentario comentario = new Comentario(
+                textoComentario: frmAddComentario["comentario"]
+            );
+            comentario.Usuario = usuario;
+
+            comentarioRepository.AdicionarComentario(comentario);
             return View();
         }
         #endregion

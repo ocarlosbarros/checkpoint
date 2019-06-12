@@ -43,8 +43,8 @@ namespace pontoDigital.Repository
 
         private string CriarCSV(Comentario comentario)
         {
-            comentario.dataCriacao = DateTime.Now;
-            string linha = $"ID={controleID};nome={comentario.Usuario.Nome};comentario={comentario.textoComentario};data_criacao={comentario.dataCriacao};\n";
+            //comentario.dataCriacao = DateTime.Now;
+            string linha = $"ID={controleID};nome={comentario.Usuario.Nome};comentario={comentario.TextoComentario};data_criacao={comentario.DataCriacao.ToShortDateString()};status={comentario.Status}\n";
 
             return linha;
         }

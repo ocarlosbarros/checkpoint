@@ -59,6 +59,7 @@ namespace pontoDigital.Repository
 
             return null;
         }
+        
         private Usuario ConverterEmObjeto(string registro)
         {
             Usuario usuario = new Usuario();
