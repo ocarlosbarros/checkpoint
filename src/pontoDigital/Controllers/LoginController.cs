@@ -1,6 +1,8 @@
+using System;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using pontoDigital.Enums;
 using pontoDigital.Repository;
 
 namespace pontoDigital.Controllers
@@ -27,15 +29,25 @@ namespace pontoDigital.Controllers
 
             var usuario = usuarioRepository.BuscarPor(email);
 
-            if(usuario != null && usuario.Senha.Equals(senha))
+            if(usuario == null )
             {
-                HttpContext.Session.SetString(SESSION_EMAIL, email);
-                HttpContext.Session.SetString(SESSION_USUARIO, usuario.Nome); 
+                return RedirectToAction("CadastrarUsuario", "Usuario");
                 
-                return RedirectToAction("AdicionarComentario", "Dashboard");
-            }
+            }else if ( usuario.Senha.Equals(senha) &&  usuario.Permissao.Equals(EnumPermissao.ADMNISTRADOR))
+                    {
+                        HttpContext.Session.SetString(SESSION_EMAIL, email);
+                        HttpContext.Session.SetString(SESSION_USUARIO, usuario.Nome); 
+                        
+                        return RedirectToAction("Index", "Dashboard");
 
-            return RedirectToAction("CadastrarUsuario", "Usuario");
+                    }else
+                        {
+                            HttpContext.Session.SetString(SESSION_EMAIL, email);
+                            HttpContext.Session.SetString(SESSION_USUARIO, usuario.Nome); 
+                            
+                            return RedirectToAction("CadastrarComentario", "Usuario");
+                        }
+
 
         }
     }
