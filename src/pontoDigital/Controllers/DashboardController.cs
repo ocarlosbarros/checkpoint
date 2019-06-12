@@ -90,6 +90,7 @@ namespace pontoDigital.Controllers
         [HttpGet]
         public IActionResult ListarUsuario()
         {
+            
             return View();
         }
 

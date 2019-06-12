@@ -1,16 +1,36 @@
-<section>
-    <form method="POST" action="/Login/Login">
-        <div class="form-group">
-        <label for="">Email:</label>
-            <input type="email" class="form-control" name="email" placeholder="Email">
-        </div>
-        <label for="">Senha:</label>
-            <input type="password" class="form-control" name="senha" placeholder="Senha">
-        </div>
-        <div>
-            <button class="btn">
-                    <span class="badge badge-primary">Login</span>
-            </button>
-        </div>
-    </form>
-</section>
+@{
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+<div class="container-login flex">
+    <div class="container-item">
+        <h2 class="header-login">Bem Vindo,<br/>
+        <span> ao ponto digital !</span></h2>
+    </div>
+    <div class="container-item-2">
+        <h2>Efetuar Login</h2>
+    <div class="form-container">
+        <form id="form-login" method="POST" action="/Login/Login">
+            <div class="form-group">
+            <label for="">Email:</label>
+                <input type="email" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div>
+            <label for="">Senha:</label>
+                <input type="password" class="form-control" name="senha" placeholder="Senha">
+            </div>
+            <div>
+                <button id="btn-login" class="btn btn-warning">
+                        <span class="">Login</span>
+                </button>
+            </div>
+            <div>
+                <a class="link-auxiliar-cadastro" asp-controller="Usuario" asp-action="CadastrarUsuario" >Cadastre-se</a>
+            </div>
+            <div>
+                <a class="link-auxiliar-senha" href="#">Esqueceu a senha ?</a>
+            </div>
+        </form>
+    </div>
+        
+    </div>
+</div>
