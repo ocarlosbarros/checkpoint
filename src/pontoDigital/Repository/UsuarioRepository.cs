@@ -43,7 +43,7 @@ namespace pontoDigital.Repository
 
         private string CriarCSV(Usuario usuario)
         {
-            string linha = $"ID={controleID};nome={usuario.Nome};genero={usuario.Genero};data_nascimento={usuario.DataNascimento};endereco={usuario.Endereco};telefone={usuario.Telefone};permissao={usuario.Permissao};email={usuario.Email};senha={usuario.Senha}\n";
+            string linha = $"ID={controleID};nome={usuario.Nome};genero={usuario.Genero};data_nascimento={usuario.DataNascimento.ToShortDateString()};endereco={usuario.Endereco};telefone={usuario.Telefone};permissao={usuario.Permissao};email={usuario.Email};senha={usuario.Senha}\n";
 
             return linha;
         }
@@ -75,6 +75,18 @@ namespace pontoDigital.Repository
             usuario.Senha = ExtrairCampo("senha", registro);
 
             return usuario;
+        }
+
+        public List<Usuario> Listar(){
+            var linhas = ObterRegistrosCSV(PATH);
+
+            foreach (var item in linhas)
+            {
+                Usuario usuario = ConverterEmObjeto(item);
+
+                this.usuariosList.Add(usuario);
+            }
+            return this.usuariosList;
         }
     }
 }

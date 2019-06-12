@@ -90,7 +90,7 @@ namespace pontoDigital.Controllers
         [HttpGet]
         public IActionResult ListarUsuario()
         {
-            
+            ViewData["usuariosList"] = usuarioRepository.Listar();
             return View();
         }
 
