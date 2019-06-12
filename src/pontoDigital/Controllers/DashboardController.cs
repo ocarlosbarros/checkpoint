@@ -15,6 +15,25 @@ namespace pontoDigital.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult CadastrarUsuario()
+        {
+            return View();
+        }
+
+        
+        [HttpGet]
+        public IActionResult ListarUsuario()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult EditarExcluirUsuario()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult CadastrarComentario(IFormCollection frmAddComentario)
         {
