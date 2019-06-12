@@ -7,8 +7,12 @@ namespace pontoDigital.Repository
     {
         protected string[] ObterRegistrosCSV(string PATH)
         {
-            return File.ReadAllLines(PATH);
+            if(!File.Exists(PATH))
+            {
+                File.Create(PATH).Close();
+            }
                         
+            return File.ReadAllLines(PATH);
         }
         protected string ExtrairCampo(string nomeCampo, string linha)
         {

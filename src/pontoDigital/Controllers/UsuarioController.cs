@@ -79,7 +79,7 @@ namespace pontoDigital.Controllers
             usuarioRepository.Cadastrar(usuario);
 
             ViewBag.titulo = "Cadastro";
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
