@@ -18,11 +18,13 @@ namespace pontoDigital.Controllers
         [HttpPost]
         public IActionResult AdicionarComentario(IFormCollection frmAddComentario)
         {
-            Comentario comentario = new Comentario();
             Usuario usuario = new Usuario();
             usuario.Nome = frmAddComentario["nome"];
+            
+            Comentario comentario = new Comentario(
+                textoComentario: frmAddComentario["comentario"]
+            );
             comentario.Usuario = usuario;
-            comentario.textoComentario = frmAddComentario["comentario"];
 
             comentarioRepository.AdicionarComentario(comentario);
             return View();
