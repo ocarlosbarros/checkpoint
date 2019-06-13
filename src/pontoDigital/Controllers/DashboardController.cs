@@ -105,6 +105,25 @@ namespace pontoDigital.Controllers
         [HttpGet]
         public IActionResult EditarUsuario(int id)
         {
+            //SelectListItem representa o  componente SELECT que será renderizado no html
+            var permissoesList = new List<SelectListItem>();//Cria uma lista select
+            
+            //Adiciona os campos do SelectListItem
+            permissoesList.Add(new SelectListItem
+            {
+                Text = "Select",
+                Value = ""
+            });
+
+            //Populando o option com os valores do enum
+            foreach (EnumPermissao valor in Enum.GetValues(typeof(EnumPermissao)))
+            {
+                permissoesList.Add(new SelectListItem { Text = Enum.GetName(typeof(EnumPermissao), valor), Value = valor.ToString() });
+            }
+            
+            //Enviando a lista de permissoes para view
+            ViewBag.Permissoes = permissoesList;
+
             Usuario usuarioEditar = usuarioRepository.BuscarPor(id);
 
             if(usuarioEditar != null)
@@ -140,6 +159,17 @@ namespace pontoDigital.Controllers
             return RedirectToAction("ListarUsuario");
         }
 
+        [HttpGet]
+        public IActionResult ExcluirUsuario(int id)
+        {
+
+            usuarioRepository.Excluir(id);
+            
+                    
+            return RedirectToAction("ListarUsuario");
+               
+        }
+
         [HttpPost]
         public IActionResult CadastrarComentario(IFormCollection frmAddComentario)
         {
@@ -154,5 +184,7 @@ namespace pontoDigital.Controllers
             comentarioRepository.AdicionarComentario(comentario);
             return View();
         }
+
+        
     }
 }

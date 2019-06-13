@@ -32,7 +32,7 @@
                     <td>@usuario.Permissao</td>
                     <td>@usuario.Email</td>
                     <td>@usuario.Senha</td>
-                    <td><a href="/Dashboard/EditarUsuario?id=@usuario.ID">Editar</a> | <a asp-controller="Dashboard" asp-action="Excluir">Excluir</a></td>
+                    <td><a href="/Dashboard/EditarUsuario?id=@usuario.ID">Editar</a> | <a href="/Dashboard/ExcluirUsuario?id=@usuario.ID">Excluir</a></td>
                 </tr>
             }
         </tbody>

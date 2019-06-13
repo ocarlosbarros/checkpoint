@@ -72,6 +72,30 @@ namespace pontoDigital.Repository
 
             return null;
         }
+
+
+        public bool Excluir(int id)
+        {
+            var usuariosRecuperados = ObterRegistrosCSV(PATH);
+            var linhaUsuario = -1;
+            var resultado = false;
+            
+            for (int i = 0; i < usuariosRecuperados.Length; i++)
+            {
+                if(id.Equals(ExtrairCampo("ID", usuariosRecuperados[i])))
+                {
+                    linhaUsuario = i;
+                    resultado = true;
+                }
+            }
+            if (linhaUsuario >= 0)
+            {
+                usuariosRecuperados[linhaUsuario] = "";
+                File.WriteAllLines(PATH, usuariosRecuperados);
+            }
+
+           return resultado; 
+        }
         
         private Usuario ConverterEmObjeto(string registro)
         {
