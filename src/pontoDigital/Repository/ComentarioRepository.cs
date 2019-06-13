@@ -79,5 +79,39 @@ namespace pontoDigital.Repository
             return comentario;
         }
 
+        public Comentario BuscarPor(int id)
+        {
+            foreach (var item in ObterRegistrosCSV(PATH))
+            {
+                if(id.ToString().Equals(ExtrairCampo("ID", item)))
+                {
+                    return ConverterEmObjeto(item);
+                }
+            }
+            return null;
+        }
+
+        public bool Editar(Comentario comentario)
+        {
+            var comentariosRecuperados = ObterRegistrosCSV(PATH);
+            var comentarioEditado = CriarCSV(comentario);
+            var linhaUsuario = -1;
+            var resultado = false;
+
+            for(int i = 0; i < comentariosRecuperados.Length; i++)
+            {
+                if (comentarioEditado.Equals(comentariosRecuperados[i]))
+                {
+                    linhaUsuario = i;
+                    resultado = true;
+                }
+            }
+            if (linhaUsuario >= 0)
+            {
+                comentariosRecuperados[linhaUsuario] = comentarioEditado;
+                File.WriteAllLines(PATH, comentariosRecuperados);
+            }
+            return resultado;
+        }
     }
 }

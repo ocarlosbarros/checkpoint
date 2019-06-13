@@ -198,6 +198,50 @@ namespace pontoDigital.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult EditarExcluirComentario()
+        {
+            ViewData["comentariosList"] = comentarioRepository.Listar();
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult EditarComentario(int id)
+        {
+            
+            Comentario comentarioEditar = comentarioRepository.BuscarPor(id);
+
+            if(comentarioEditar != null)
+            {
+                ViewBag.comentario = comentarioEditar;
+            }else
+                {
+                    TempData["mensagem"] = "Não a comentário a ser editado!";
+
+                    return RedirectToAction("ListarComentario");
+                }
+            
+            return View();
+        }
+
+        [HttpPost]
+         public IActionResult SalvarComentario(IFormCollection frmEditarComentario)
+        {
+            Usuario usuario = new Usuario();
+            Comentario comentarioEditar = new Comentario();
+            comentarioEditar.Usuario = usuario;
+
+            comentarioEditar.ID = int.Parse(frmEditarComentario["id"]);
+            comentarioEditar.Usuario.Nome = frmEditarComentario["nome"];
+            comentarioEditar.TextoComentario = frmEditarComentario["comentario"];
+            
+
+            comentarioRepository.Editar(comentarioEditar);
+
+            return RedirectToAction("ListarUsuario");
+        }
+
         
     }
 }
