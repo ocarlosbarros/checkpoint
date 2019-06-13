@@ -90,7 +90,7 @@ namespace pontoDigital.Repository
             }
             return null;
         }
-
+    
         public bool Editar(Comentario comentario)
         {
             var comentariosRecuperados = ObterRegistrosCSV(PATH);
@@ -100,7 +100,7 @@ namespace pontoDigital.Repository
 
             for(int i = 0; i < comentariosRecuperados.Length; i++)
             {
-                if (comentarioEditado.Equals(comentariosRecuperados[i]))
+                if (comentario.ID.ToString().Equals(ExtrairCampo("ID", comentariosRecuperados[i])))
                 {
                     linhaUsuario = i;
                     resultado = true;
@@ -109,6 +109,52 @@ namespace pontoDigital.Repository
             if (linhaUsuario >= 0)
             {
                 comentariosRecuperados[linhaUsuario] = comentarioEditado;
+                File.WriteAllLines(PATH, comentariosRecuperados);
+            }
+            return resultado;
+        }
+
+        public bool Excluir(int id)
+        {
+           var comentarioRecuperados = ObterRegistrosCSV(PATH);
+            var linhaComentario = -1;
+            var resultado = false;
+            
+            for (int i = 0; i < comentarioRecuperados.Length; i++)
+            {
+                if(id.ToString().Equals(ExtrairCampo("ID", comentarioRecuperados[i])))
+                {
+                    linhaComentario = i;
+                    resultado = true;
+                }
+            }
+            if (linhaComentario >= 0)
+            {
+                comentarioRecuperados[linhaComentario] = "";
+                File.WriteAllLines(PATH, comentarioRecuperados);
+            }
+
+           return resultado;  
+        }
+
+        public bool Aprovar(Comentario comentario)
+        {
+            var comentariosRecuperados = ObterRegistrosCSV(PATH);
+            var comentarioAprovado = CriarCSV(comentario);
+            var linhaComentario = -1;
+            var resultado = false;
+
+            for(int i = 0; i < comentariosRecuperados.Length; i++)
+            {
+                if (comentario.ID.ToString().Equals(ExtrairCampo("ID", comentariosRecuperados[i])))
+                {
+                    linhaComentario = i;
+                    resultado = true;
+                }
+            }
+            if (linhaComentario >= 0)
+            {
+                comentariosRecuperados[linhaComentario] = comentarioAprovado;
                 File.WriteAllLines(PATH, comentariosRecuperados);
             }
             return resultado;

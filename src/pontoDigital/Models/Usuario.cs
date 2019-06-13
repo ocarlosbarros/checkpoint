@@ -48,9 +48,9 @@ namespace pontoDigital.Models
 
 
         #region Métodos
-        public void AprovarComentario(Comentario comentario, bool status)
+        public void AprovarComentario(Comentario comentario)
         {
-            comentario.Status = status;
+            comentario.Status = !comentario.Status;
         }
         #endregion
     }

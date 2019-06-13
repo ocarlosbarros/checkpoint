@@ -187,7 +187,8 @@ namespace pontoDigital.Controllers
             comentario.Usuario = usuario;
 
             comentarioRepository.AdicionarComentario(comentario);
-            return View();
+
+            return RedirectToAction("ListarComentario");
         }
 
         [HttpGet]
@@ -235,11 +236,43 @@ namespace pontoDigital.Controllers
             comentarioEditar.ID = int.Parse(frmEditarComentario["id"]);
             comentarioEditar.Usuario.Nome = frmEditarComentario["nome"];
             comentarioEditar.TextoComentario = frmEditarComentario["comentario"];
+            comentarioEditar.DataCriacao = DateTime.Parse(DateTime.Now.ToShortDateString());
+            comentarioEditar.Status = false;
             
-
             comentarioRepository.Editar(comentarioEditar);
 
-            return RedirectToAction("ListarUsuario");
+            return RedirectToAction("ListarComentario");
+        }
+
+        [HttpGet]
+        public IActionResult ExcluirComentario(int id)
+        {
+
+            comentarioRepository.Excluir(id);
+            
+                    
+            return RedirectToAction("ListarComentario");
+               
+        }
+
+        [HttpGet]
+        public IActionResult AprovarComentario()
+        {
+            ViewData["comentariosList"] = comentarioRepository.Listar();
+
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Aprovar(int id)
+        {
+            Comentario comentarioAprovar = comentarioRepository.BuscarPor(id);
+            Usuario usuario = new Usuario();
+            usuario.AprovarComentario(comentarioAprovar);
+            comentarioRepository.Aprovar(comentarioAprovar);
+
+            return RedirectToAction("ListarComentario");
         }
 
         

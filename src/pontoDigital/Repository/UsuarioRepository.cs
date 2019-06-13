@@ -140,7 +140,7 @@ namespace pontoDigital.Repository
 
             for(int i = 0; i < usuariosRecuperados.Length; i++)
             {
-                if (usuarioEditado.Equals(usuariosRecuperados[i]))
+                if (usuario.ID.ToString().Equals(ExtrairCampo("ID", usuariosRecuperados[i])))
                 {
                     linhaUsuario = i;
                     resultado = true;

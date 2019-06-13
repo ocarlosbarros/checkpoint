@@ -29,7 +29,7 @@
                         var status = @comentario.Status == false ? "Reprovado" : "Aprovado"; 
                     }
                     <td>@status</td>
-                    <td><a href="/Dashboard/EditarComentario?id=@comentario.ID">Editar</a> | <a href="/Dashboard/EditarComentario?id=@comentario.ID">Excluir</a></td>
+                    <td><a href="/Dashboard/EditarComentario?id=@comentario.ID">Editar</a> | <a href="/Dashboard/ExcluirComentario?id=@comentario.ID">Excluir</a></td>
                 </tr>
             }
         </tbody>
