@@ -97,7 +97,47 @@ namespace pontoDigital.Controllers
         [HttpGet]
         public IActionResult EditarExcluirUsuario()
         {
+            ViewData["usuariosList"] = usuarioRepository.Listar();
+
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult EditarUsuario(int id)
+        {
+            Usuario usuarioEditar = usuarioRepository.BuscarPor(id);
+
+            if(usuarioEditar != null)
+            {
+                ViewBag.usuario = usuarioEditar;
+            }else
+                {
+                    TempData["mensagem"] = "Não a usuário a ser editado!";
+
+                    return RedirectToAction("ListarUsuario");
+                }
+            
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Salvar(IFormCollection frmEditarUsuario)
+        {
+            Usuario usuarioEditar = new Usuario
+            (
+                id:int.Parse(frmEditarUsuario["id"]),
+                nome: frmEditarUsuario["nome"],
+                genero: frmEditarUsuario["genero"],
+                dataNascimento: DateTime.Parse(frmEditarUsuario["dataNascimento"]),
+                endereco: frmEditarUsuario["endereco"],
+                permissao: frmEditarUsuario["permissao"],
+                email: frmEditarUsuario["email"],
+                telefone: frmEditarUsuario["telefone"],
+                senha:frmEditarUsuario["senha"]
+            );
+
+            usuarioRepository.Editar(usuarioEditar);
+
+            return RedirectToAction("ListarUsuario");
         }
 
         [HttpPost]

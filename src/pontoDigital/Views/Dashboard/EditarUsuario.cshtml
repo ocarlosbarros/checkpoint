@@ -1,0 +1,58 @@
+@using pontoDigital.Models;
+@{
+
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    @model pontoDigital.Models.Usuario
+    Usuario usuario = ViewBag.usuario;
+    string dataNascimento = usuario.DataNascimento.ToString("yyyy-MM-dd");
+}
+<section class="full-screen">
+    <h2>Cadastrar Usuário</h2>
+    <form method="POST" action='@Url.Action("Salvar", "Dashboard")'>
+         <div>
+            <label for="lbl-nome">Nome:</label>
+            <input type="hidden" name="id" value="@usuario.ID" minlength="1" maxlength="80" required/>
+        </div>
+        <div>
+            <label for="lbl-nome">Nome:</label>
+            <input type="text" name="nome"  value="@usuario.Nome"minlength="1" maxlength="80" required/>
+        </div>
+
+        <div>
+            <label for="lbl-genero">Genero:</label><br/>
+            <input type="radio" name="genero" value="@usuario.Genero" checked="checked" required>Masculino<br/>
+            <input type="radio" name="genero" value="feminino">Feminino<br/>
+            <input type="radio" name="genero" value="outro">Outro<br/>
+        </div>
+
+        <div>
+            <label for="lbl-dataNascimento">Data de nascimento:</label>
+            <input type="date" name="dataNascimento" value="@dataNascimento" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" required/>
+        </div>
+
+        <div>
+            <label for="lbl-endereco">Endereço:</label>
+            <input type="text" name="endereco" value="@usuario.Endereco" required/>
+        </div>
+
+        <div>
+            <label for="lbl-telefone">Telefone:</label>
+            <input type="tel" name="telefone" value="@usuario.Telefone" required/>
+        </div>
+        <div>
+            <select asp-for="Permissao" asp-items="ViewBag.Permissoes" value="@usuario.Permissao"></select>
+        </div>
+
+        <div>
+            <label for="lbl-email">E-mail:</label>
+            <input type="mail" name="eMail" value="@usuario.Email" pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+        </div>
+
+        <div>
+            <label for="lbl-senha">Senha:</label>
+            <input type="password" name="senha" value="usuario.Senha" minlength="6"  required/>
+        </div>
+
+        <button type="submit">Salvar</button>
+    </form>
+</section>

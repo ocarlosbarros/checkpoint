@@ -59,6 +59,19 @@ namespace pontoDigital.Repository
 
             return null;
         }
+
+        public Usuario BuscarPor(int id)
+        {
+            foreach (var item in ObterRegistrosCSV(PATH))
+            {
+                if (id.ToString().Equals(ExtrairCampo("ID", item)))
+                {
+                    return ConverterEmObjeto(item);
+                }
+            }
+
+            return null;
+        }
         
         private Usuario ConverterEmObjeto(string registro)
         {
@@ -77,7 +90,8 @@ namespace pontoDigital.Repository
             return usuario;
         }
 
-        public List<Usuario> Listar(){
+        public List<Usuario> Listar()
+        {
             var linhas = ObterRegistrosCSV(PATH);
 
             foreach (var item in linhas)
@@ -87,6 +101,29 @@ namespace pontoDigital.Repository
                 this.usuariosList.Add(usuario);
             }
             return this.usuariosList;
+        }
+
+        public bool Editar(Usuario usuario)
+        {
+            var usuariosRecuperados = ObterRegistrosCSV(PATH);
+            var usuarioEditado = CriarCSV(usuario);
+            var linhaUsuario = -1;
+            var resultado = false;
+
+            for(int i = 0; i < usuariosRecuperados.Length; i++)
+            {
+                if (usuarioEditado.Equals(usuariosRecuperados[i]))
+                {
+                    linhaUsuario = i;
+                    resultado = true;
+                }
+            }
+            if (linhaUsuario >= 0)
+            {
+                usuariosRecuperados[linhaUsuario] = usuarioEditado;
+                File.WriteAllLines(PATH, usuariosRecuperados);
+            }
+            return resultado;
         }
     }
 }

@@ -31,6 +31,19 @@ namespace pontoDigital.Models
             this.Email = email;
             this.Senha = senha;
         }
+
+         public Usuario(int id, string nome, string genero, DateTime dataNascimento, string endereco, string telefone, string permissao, string email, string senha)
+        {
+            this.ID = id;
+            this.Nome = nome;
+            this.Genero = genero;
+            this.DataNascimento = dataNascimento;
+            this.Endereco = endereco;
+            this.Telefone = telefone;
+            this.Permissao = (EnumPermissao) Enum.Parse(typeof(EnumPermissao), permissao, true);
+            this.Email = email;
+            this.Senha = senha;
+        }
         #endregion
     }
 }
