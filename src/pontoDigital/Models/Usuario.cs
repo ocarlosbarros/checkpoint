@@ -45,5 +45,13 @@ namespace pontoDigital.Models
             this.Senha = senha;
         }
         #endregion
+
+
+        #region Métodos
+        public void AprovarComentario(Comentario comentario, bool status)
+        {
+            comentario.Status = status;
+        }
+        #endregion
     }
 }

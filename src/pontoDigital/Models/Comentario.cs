@@ -13,7 +13,7 @@ namespace pontoDigital.Models
         public DateTime DataCriacao { get; set; }
         public bool Status {get;set;}
 
-
+        public Comentario(){}
         public Comentario(string textoComentario)
         {
             this.TextoComentario = textoComentario;

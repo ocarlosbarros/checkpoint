@@ -9,7 +9,6 @@ namespace pontoDigital.Repository
     {
         private const string PATH = "Data/Comentarios.csv";
         private const string PATH_INDEX = "Data/Comentario_Id.csv";
-
         private uint controleID = 0;
         private List<Comentario> comentariosList = new List<Comentario>();
         
@@ -48,5 +47,37 @@ namespace pontoDigital.Repository
 
             return linha;
         }
+
+        public List<Comentario> Listar()
+        {
+            var linhas = ObterRegistrosCSV(PATH);
+
+            foreach (var item in linhas)
+            {
+                if(item != "")
+                {
+                    Comentario comentario = ConverterEmObjeto(item);
+                    this.comentariosList.Add(comentario);
+                }
+            }
+            return this.comentariosList;
+        }
+
+        private Comentario ConverterEmObjeto(string registro)
+        {
+            Usuario usuario = new Usuario();
+            Comentario comentario = new Comentario();
+            comentario.Usuario = usuario;
+            
+            Console.WriteLine("REGISTRO" + registro);
+            comentario.ID = int.Parse(ExtrairCampo("ID", registro));
+            comentario.Usuario.Nome = ExtrairCampo("nome", registro);
+            comentario.TextoComentario = ExtrairCampo("comentario", registro);
+            comentario.DataCriacao = DateTime.Parse(ExtrairCampo("data_criacao", registro));
+            comentario.Status = bool.Parse(ExtrairCampo("status", registro));
+
+            return comentario;
+        }
+
     }
 }

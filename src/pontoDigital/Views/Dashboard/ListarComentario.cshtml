@@ -1,7 +1,37 @@
+@using pontoDigital.Models;
 @{
 
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 <section>
-    <h2>Listar Comentários</h2>
+    <h2>Lista Comentário</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Usuário</th>
+                <th scope="col">Depoimento</th>
+                <th scope="col">Data do Depoimento</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comentario in ViewData["comentariosList"] as List<Comentario>)
+            {
+                <tr>
+                    <td>@comentario.ID</td>
+                    <td>@comentario.Usuario.Nome</td>
+                    <td>@comentario.Usuario.Nome</td>
+                    <td>@comentario.TextoComentario</td>
+                    <td>@comentario.DataCriacao</td>
+                    @{
+                        var status = @comentario.Status == false ? "Reprovado" : "Aprovado"; 
+                    }
+                    <td>@status</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
 </section>

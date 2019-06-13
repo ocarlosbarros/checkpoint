@@ -169,6 +169,11 @@ namespace pontoDigital.Controllers
             return RedirectToAction("ListarUsuario");
                
         }
+        [HttpGet]
+        public IActionResult CadastrarComentario()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult CadastrarComentario(IFormCollection frmAddComentario)
@@ -182,6 +187,14 @@ namespace pontoDigital.Controllers
             comentario.Usuario = usuario;
 
             comentarioRepository.AdicionarComentario(comentario);
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult ListarComentario()
+        {
+            ViewData["comentariosList"] = comentarioRepository.Listar();
+
             return View();
         }
 
