@@ -45,25 +45,7 @@ namespace pontoDigital.Controllers
        [HttpPost]
         public IActionResult CadastrarUsuario(IFormCollection frmCadastrarUsuario)
         {
-            //SelectListItem representa o  componente SELECT que será renderizado no html
-            var permissoesList = new List<SelectListItem>();//Cria uma lista select
             
-            //Adiciona os campos do SelectListItem
-            permissoesList.Add(new SelectListItem
-            {
-                Text = "Select",
-                Value = ""
-            });
-
-            //Populando o option com os valores do enum
-            foreach (EnumPermissao valor in Enum.GetValues(typeof(EnumPermissao)))
-            {
-                permissoesList.Add(new SelectListItem { Text = Enum.GetName(typeof(EnumPermissao), valor), Value = valor.ToString() });
-            }
-            
-            //Enviando a lista de permissoes para view
-            ViewBag.Permissoes = permissoesList;
-
             Usuario usuario = new Usuario
             (
             nome: frmCadastrarUsuario["nome"],
@@ -75,7 +57,7 @@ namespace pontoDigital.Controllers
             senha:frmCadastrarUsuario["senha"]
 
             );//Fim do construtor
-
+            usuario.Permissao = (EnumPermissao) Enum.Parse(typeof(EnumPermissao),frmCadastrarUsuario["permissao"]);
             usuarioRepository.Cadastrar(usuario);
 
             ViewBag.titulo = "Cadastro";

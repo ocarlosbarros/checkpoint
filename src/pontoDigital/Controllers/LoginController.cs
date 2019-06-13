@@ -29,11 +29,9 @@ namespace pontoDigital.Controllers
 
             var usuario = usuarioRepository.BuscarPor(email);
 
-            if(usuario == null )
+            if(usuario != null && usuario.Senha.Equals(senha))
             {
-                return RedirectToAction("CadastrarUsuario", "Usuario");
-                
-            }else if ( usuario.Senha.Equals(senha) &&  usuario.Permissao.Equals(EnumPermissao.ADMNISTRADOR))
+                if ( usuario.Permissao.Equals(EnumPermissao.ADMNISTRADOR))
                     {
                         HttpContext.Session.SetString(SESSION_EMAIL, email);
                         HttpContext.Session.SetString(SESSION_USUARIO, usuario.Nome); 
@@ -47,8 +45,8 @@ namespace pontoDigital.Controllers
                             
                             return RedirectToAction("CadastrarComentario", "Usuario");
                         }
-
-
+            }   
+            return RedirectToAction("CadastrarUsuario", "Usuario");
         }
     }
 }

@@ -39,8 +39,7 @@
             <label for="lbl-telefone">Telefone:</label>
             <input type="tel" name="telefone" value="@usuario.Telefone" required/>
         </div>
-        <div>
-            <select asp-for="Permissao" asp-items="ViewBag.Permissoes" value="@usuario.Permissao"></select>
+            <select name="permissao" asp-for="Permissao" asp-items="Html.GetEnumSelectList<EnumPermissao>()" class="form-control"></select>
         </div>
 
         <div>

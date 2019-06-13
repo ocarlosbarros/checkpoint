@@ -2,6 +2,7 @@
 
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
     @model pontoDigital.Models.Usuario
+    @using pontoDigital.Enums
 }
 <section class="full-screen">
     <h2>Cadastrar Usuário</h2>
@@ -32,8 +33,8 @@
             <label for="lbl-telefone">Telefone:</label>
             <input type="tel" name="telefone" required/>
         </div>
-        <div>
-            <select asp-for="Permissao" asp-items="ViewBag.Permissoes"></select>
+        <div class="form-group col-sm-2">
+            <select name="permissao" asp-for="Permissao" asp-items="Html.GetEnumSelectList<EnumPermissao>()" class="form-control"></select>
         </div>
 
         <div>
