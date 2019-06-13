@@ -16,21 +16,25 @@ namespace pontoDigital.Repository
         }
         protected string ExtrairCampo(string nomeCampo, string linha)
         {
-            var chave = nomeCampo;
-            var indiceInical = linha.IndexOf(chave);
-            var indiceFinal = linha.IndexOf(";", indiceInical);
             var valor = "";
-
-            if(indiceFinal != -1)
+            
+            if(linha != "")
             {
-                valor = linha.Substring(indiceInical, indiceFinal - indiceInical);
-            }else
+                var chave = nomeCampo;
+                var indiceInical = linha.IndexOf(chave);
+                var indiceFinal = linha.IndexOf(";", indiceInical);
+
+                if(indiceFinal != -1)
                 {
-                    valor = linha.Substring(indiceInical);
+                    valor = linha.Substring(indiceInical, indiceFinal - indiceInical);
+                }else
+                    {
+                        valor = linha.Substring(indiceInical);
+                    }
+
+                Console.WriteLine($"Campo[{nomeCampo}] e valor {valor}");
+
                 }
-
-            Console.WriteLine($"Campo[{nomeCampo}] e valor {valor}");
-
             return valor.Replace(nomeCampo + "=", "");
         }   
     }   

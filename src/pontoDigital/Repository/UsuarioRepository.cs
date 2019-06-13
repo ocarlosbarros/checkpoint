@@ -82,7 +82,7 @@ namespace pontoDigital.Repository
             
             for (int i = 0; i < usuariosRecuperados.Length; i++)
             {
-                if(id.Equals(ExtrairCampo("ID", usuariosRecuperados[i])))
+                if(id.ToString().Equals(ExtrairCampo("ID", usuariosRecuperados[i])))
                 {
                     linhaUsuario = i;
                     resultado = true;
@@ -118,11 +118,15 @@ namespace pontoDigital.Repository
         {
             var linhas = ObterRegistrosCSV(PATH);
 
+        
             foreach (var item in linhas)
             {
-                Usuario usuario = ConverterEmObjeto(item);
+                if(item != "")
+                {
+                    Usuario usuario = ConverterEmObjeto(item);
+                    this.usuariosList.Add(usuario);
 
-                this.usuariosList.Add(usuario);
+                }
             }
             return this.usuariosList;
         }
