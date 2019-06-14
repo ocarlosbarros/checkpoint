@@ -216,16 +216,17 @@ namespace pontoDigital.Controllers
         }
 
         [HttpGet]
-        public IActionResult Aprovar(int id)
+        public IActionResult AprovarReprovar(int id)
         {
             Comentario comentarioAprovar = comentarioRepository.BuscarPor(id);
             Usuario usuario = new Usuario();
-            usuario.AprovarComentario(comentarioAprovar);
+            
+            usuario.AprovarReprovarComentario(comentarioAprovar);
+            
             comentarioRepository.Aprovar(comentarioAprovar);
 
             return RedirectToAction("ListarComentario");
         }
 
-        
     }
 }
