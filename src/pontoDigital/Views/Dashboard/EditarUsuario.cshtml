@@ -3,6 +3,7 @@
 
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
     @model pontoDigital.Models.Usuario
+    @using pontoDigital.Enums
     Usuario usuario = ViewBag.usuario;
     string dataNascimento = usuario.DataNascimento.ToString("yyyy-MM-dd");
 }
@@ -10,7 +11,6 @@
     <h2>Editar Usuário</h2>
     <form method="POST" action='@Url.Action("Salvar", "Dashboard")'>
          <div>
-            <label for="lbl-nome">Nome:</label>
             <input type="hidden" name="id" value="@usuario.ID" minlength="1" maxlength="80" required/>
         </div>
         <div>
@@ -39,7 +39,8 @@
             <label for="lbl-telefone">Telefone:</label>
             <input type="tel" name="telefone" value="@usuario.Telefone" required/>
         </div>
-            <select name="permissao" asp-for="Permissao" asp-items="Html.GetEnumSelectList<EnumPermissao>()" class="form-control"></select>
+        <div>
+            <select name="permissao" asp-for="Permissao" asp-items="Html.GetEnumSelectList<EnumPermissao>()"></select>
         </div>
 
         <div>
@@ -49,7 +50,7 @@
 
         <div>
             <label for="lbl-senha">Senha:</label>
-            <input type="password" name="senha" value="usuario.Senha" minlength="6"  required/>
+            <input type="password" name="senha" value="@usuario.Senha" minlength="6"  required/>
         </div>
 
         <button type="submit">Salvar</button>

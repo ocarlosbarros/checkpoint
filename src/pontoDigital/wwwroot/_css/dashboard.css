@@ -2,3 +2,12 @@ body
 {
     background:#F5F5F5;
 }
+
+.usuario-logado
+{
+    font-size: 1.2em;
+    font-weight: bolder;
+    position: absolute;
+    top: 0.5%;
+    right: 5%;
+}

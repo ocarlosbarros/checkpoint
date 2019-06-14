@@ -14,11 +14,16 @@ namespace pontoDigital.Controllers
         #region "Imports" do Repository
             private UsuarioRepository usuarioRepository = new UsuarioRepository();
             private ComentarioRepository comentarioRepository = new ComentarioRepository();
+
+            private const string SESSION_EMAIL = "_EMAIL";
+            private const string SESSION_USUARIO = "_USUARIO";
+            
         #endregion
 
         [HttpGet]
         public IActionResult Index()
         {
+            ViewData["User"] = HttpContext.Session.GetString(SESSION_USUARIO);
             return View();
         }
 

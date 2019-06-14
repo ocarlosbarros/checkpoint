@@ -14,6 +14,9 @@ namespace pontoDigital.Controllers
         #region "Imports" do Repository
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
         private ComentarioRepository comentarioRepository = new ComentarioRepository();
+        
+        private const string SESSION_EMAIL = "_EMAIL";
+        private const string SESSION_USUARIO = "_USUARIO";
 
         #endregion
 
@@ -21,24 +24,6 @@ namespace pontoDigital.Controllers
         [HttpGet]
         public IActionResult CadastrarUsuario()
         {
-            //SelectListItem representa o  componente SELECT que será renderizado no html
-            var permissoesList = new List<SelectListItem>();//Cria uma lista select
-            
-            //Adiciona os campos do SelectListItem
-            permissoesList.Add(new SelectListItem
-            {
-                Text = "Select",
-                Value = ""
-            });
-
-            //Populando o option com os valores do enum
-            foreach (EnumPermissao valor in Enum.GetValues(typeof(EnumPermissao)))
-            {
-                permissoesList.Add(new SelectListItem { Text = Enum.GetName(typeof(EnumPermissao), valor), Value = valor.ToString() });
-            }
-            
-            //Enviando a lista de permissoes para view
-            ViewBag.Permissoes = permissoesList;
             return View();
         }
 
@@ -67,6 +52,8 @@ namespace pontoDigital.Controllers
         [HttpGet]
         public IActionResult CadastrarComentario()
         {
+            ViewData["User"] = HttpContext.Session.GetString(SESSION_USUARIO);
+            ViewData["NomeView"] = "Cadastrar Comentario";
             return View();
         }
 

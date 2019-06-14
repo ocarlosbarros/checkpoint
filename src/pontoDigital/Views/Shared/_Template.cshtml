@@ -1,3 +1,6 @@
+@{
+        var user = (string) ViewData["User"];
+}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,7 +37,15 @@
                             <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
                             <li><a asp-controller="Contatos" asp-action="Index">Contatos</a></li>
                             <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
-                            <li><a asp-controller="Login" asp-action="Login" class="autenticacao">Login</a></li>
+                            
+                            @if (string.IsNullOrEmpty(user))
+                            {
+                                <li><a asp-controller="Login" asp-action="Login" class="autenticacao">Login</a></li>
+                            }else
+                                {
+                                    <li><a asp-controller="Login" asp-action="Logout" class="autenticacao">Logout</a></li>
+
+                                }
                             <li><a asp-controller="Usuario" asp-action="CadastrarUsuario" class="autenticacao">Sign in</a></li>
                         </ul>
                     </nav>

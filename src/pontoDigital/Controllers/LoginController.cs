@@ -12,9 +12,8 @@ namespace pontoDigital.Controllers
         #region "Import" repositories
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
         #endregion
-
-        private const string SESSION_EMAIL = "_EMAIL";
-        private const string SESSION_USUARIO = "_USUARIO";
+        public const string SESSION_EMAIL = "_EMAIL";
+        public const string SESSION_USUARIO = "_USUARIO";
         [HttpGet]
         public IActionResult Login()
         {
@@ -47,6 +46,15 @@ namespace pontoDigital.Controllers
                         }
             }   
             return RedirectToAction("CadastrarUsuario", "Usuario");
+        }
+
+        public IActionResult Logout() 
+        {
+            HttpContext.Session.Remove(SESSION_EMAIL);
+            HttpContext.Session.Remove(SESSION_USUARIO);
+            HttpContext.Session.Clear();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
