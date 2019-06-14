@@ -2,10 +2,11 @@
 @{
 
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    var quantidade = ViewBag.quantidade;
 }
 <section>
     <h2>Listar Usuários</h2>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -22,6 +23,7 @@
         <tbody>
             @foreach (var usuario in ViewData["usuariosList"] as List<Usuario>)
             {
+                
                 <tr>
                     <td>@usuario.ID</td>
                     <td>@usuario.Nome</td>
@@ -34,6 +36,12 @@
                     <td>@usuario.Senha</td>
                 </tr>
             }
-        </tbody>
+            <tr>
+                    <th scope="col">Total Usuarios Cadastrados</th>
+                    @{
+                    }
+                    <th scope="row" colspan="8">@quantidade</th>
+            </tr>
+            </tbody>
     </table>
 </section>
