@@ -1,6 +1,13 @@
-.vscode
-src/pontoDigital/obj/
-src/pontoDigital/obj/Debug/
-src/pontoDigital/bin
-src/pontoDigital/Data/*
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code files
+.vs
+src/checkpoint/obj/
+src/checkpoint/obj/Debug/
+src/checkpoint/bin
+src/checkpoint/Data/*
 
