@@ -5,7 +5,7 @@
 *.sln.docstates
 
 # Visual Studio Code files
-.vs
+.vs/
 src/checkpoint/obj/
 src/checkpoint/obj/Debug/
 src/checkpoint/bin
