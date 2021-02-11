@@ -65,7 +65,7 @@ namespace AspNetCore
         ");
             EndContext();
             BeginContext(342, 908, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f2b8d46eb80c4ba98a4452fd46d48abe", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5071c2b2f8841518eedc45f752a3a61", async() => {
                 BeginContext(400, 589, true);
                 WriteLiteral(@"
             <div class=""form-group"">
@@ -85,7 +85,7 @@ namespace AspNetCore
                 ");
                 EndContext();
                 BeginContext(989, 105, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4ea794b990f74dbb9ee20a3e511458c2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79df793e746c4eb4916ac08c0874024c", async() => {
                     BeginContext(1079, 11, true);
                     WriteLiteral("Cadastre-se");
                     EndContext();

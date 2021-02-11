@@ -54,7 +54,7 @@ namespace AspNetCore
             WriteLiteral("<section>\r\n    <h1>Adicionar Comentário</h1>\r\n    ");
             EndContext();
             BeginContext(155, 436, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e05c713210b74fa6b597ad246424bf04", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a0ab0af22200485cbec5f55a5e21db9f", async() => {
                 BeginContext(215, 369, true);
                 WriteLiteral(@"
         <div>

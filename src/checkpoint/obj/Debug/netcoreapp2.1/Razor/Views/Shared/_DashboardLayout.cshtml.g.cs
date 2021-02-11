@@ -60,7 +60,7 @@ namespace AspNetCore
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"pt-br\">\r\n");
             EndContext();
             BeginContext(92, 430, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "68ae91d49c5543ae843e3d0c1a000417", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e287f360f2c54b4f9255b02ada6be6d8", async() => {
                 BeginContext(98, 417, true);
                 WriteLiteral(@"
     <meta charset=""UTF-8"">
@@ -86,7 +86,7 @@ namespace AspNetCore
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(524, 2639, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1c0202628a147e2b23c94f3ae299e21", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1231daab68f340a3a2d0a99bf20173ad", async() => {
                 BeginContext(530, 368, true);
                 WriteLiteral(@"
     <main>
@@ -98,7 +98,7 @@ namespace AspNetCore
                         ");
                 EndContext();
                 BeginContext(898, 95, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef0607c5f20049d3b6c6d434f392b5b6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae15a17b18234f94a4ae26e435336496", async() => {
                     BeginContext(980, 9, true);
                     WriteLiteral("Cadastrar");
                     EndContext();
@@ -123,7 +123,7 @@ namespace AspNetCore
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(1019, 89, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ced4942561f94a59a8a8b0f7ee6abdd7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a767ef3d75da4c11adf20c0dda0a4548", async() => {
                     BeginContext(1098, 6, true);
                     WriteLiteral("Listar");
                     EndContext();
@@ -148,7 +148,7 @@ namespace AspNetCore
                 WriteLiteral("\r\n                        <div class=\"dropdown-divider\"></div>\r\n                            ");
                 EndContext();
                 BeginContext(1200, 104, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3feab82b76c44bfb6acb9ec6cce2dd7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0f7f10d617344588ece1482ddbc1558", async() => {
                     BeginContext(1286, 14, true);
                     WriteLiteral("Editar/Excluir");
                     EndContext();
@@ -179,7 +179,7 @@ namespace AspNetCore
                         ");
                 EndContext();
                 BeginContext(1660, 98, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c647ce5fc9447cda6ab468866f7785c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "daba7a95fa1a42eeba7c8627bfa45d2e", async() => {
                     BeginContext(1745, 9, true);
                     WriteLiteral("Cadastrar");
                     EndContext();
@@ -204,7 +204,7 @@ namespace AspNetCore
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(1784, 92, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3ecb28da243f4a0a9cc098ed3755b61f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5da8a2ee572243c8801333adfa675a18", async() => {
                     BeginContext(1866, 6, true);
                     WriteLiteral("Listar");
                     EndContext();
@@ -229,7 +229,7 @@ namespace AspNetCore
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(1902, 106, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9f8b9712ff046e8b902fdb16dc12584", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8bf89a10cc184f08a430c26c36b23247", async() => {
                     BeginContext(1985, 19, true);
                     WriteLiteral("Aprovar Comentários");
                     EndContext();
@@ -254,7 +254,7 @@ namespace AspNetCore
                 WriteLiteral("\r\n                        <div class=\"dropdown-divider\"></div>\r\n                            ");
                 EndContext();
                 BeginContext(2100, 107, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "248202b18b9442bcb3ca6c8be71e10cd", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eaf218c122584edf809c858ddc73a429", async() => {
                     BeginContext(2189, 14, true);
                     WriteLiteral("Editar/Excluir");
                     EndContext();
