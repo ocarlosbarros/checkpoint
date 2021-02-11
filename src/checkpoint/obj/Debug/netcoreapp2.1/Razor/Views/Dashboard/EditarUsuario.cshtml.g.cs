@@ -72,7 +72,7 @@ using pontoDigital.Enums;
             WriteLiteral("<section class=\"full-screen\">\r\n    <h2>Editar Usuário</h2>\r\n    ");
             EndContext();
             BeginContext(345, 1934, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94c7373dbafa4d2fadc1b18fa2ae4e51", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a70102bf73e84142b5dd8ee11b5b3ec8", async() => {
                 BeginContext(409, 60, true);
                 WriteLiteral("\r\n         <div>\r\n            <input type=\"hidden\" name=\"id\"");
                 EndContext();
@@ -144,7 +144,7 @@ WriteAttributeValue("", 1624, usuario.Telefone, 1624, 17, false);
                 WriteLiteral(" required/>\r\n        </div>\r\n        <div>\r\n            ");
                 EndContext();
                 BeginContext(1698, 106, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0042acbc50024dc1a8e385e76db46acd", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9d292ec4ef1a4c13a657db3b36e5ba72", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper>();

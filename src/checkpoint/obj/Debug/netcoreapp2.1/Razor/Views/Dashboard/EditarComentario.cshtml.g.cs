@@ -64,7 +64,7 @@ using pontoDigital.Models;
             WriteLiteral("<section class=\"full-screen\">\r\n    <h2>Editar Comentário</h2>\r\n    ");
             EndContext();
             BeginContext(323, 722, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5912998084f546fbb8739e409dbe5e04", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "66858d6f573e4001ab054efa9fa34d50", async() => {
                 BeginContext(397, 60, true);
                 WriteLiteral("\r\n         <div>\r\n            <input type=\"hidden\" name=\"id\"");
                 EndContext();

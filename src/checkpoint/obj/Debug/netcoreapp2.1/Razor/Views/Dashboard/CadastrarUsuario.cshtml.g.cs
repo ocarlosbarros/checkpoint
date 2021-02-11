@@ -60,7 +60,7 @@ using pontoDigital.Enums;
             WriteLiteral("<section class=\"full-screen\">\r\n    <h2>Cadastrar Usuário</h2>\r\n    ");
             EndContext();
             BeginContext(203, 1645, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12c2e72dc9e7413abf258f52d81209f8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9673910aef744d2a933ccbdb21e2fcea", async() => {
                 BeginContext(275, 1035, true);
                 WriteLiteral(@"
         <div>
@@ -93,7 +93,7 @@ using pontoDigital.Enums;
                 WriteLiteral("           ");
                 EndContext();
                 BeginContext(1310, 106, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29e32c25db7e4b0c95426a9fe045c5c9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2b3017263ea24e7bbfd48150263da848", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper>();

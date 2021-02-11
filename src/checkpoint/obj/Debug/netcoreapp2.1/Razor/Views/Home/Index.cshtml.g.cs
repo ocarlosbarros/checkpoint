@@ -194,7 +194,7 @@ namespace AspNetCore
                 ");
             EndContext();
             BeginContext(7737, 177, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6f13f977b0114a45aa05ed14125174c0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "084899cdf8b4416697322f392d38031a", async() => {
                 BeginContext(7806, 101, true);
                 WriteLiteral("\r\n                    <button type=\"submit\" class=\"botao-padrao\">Adicionar</button>\r\n                ");
                 EndContext();
