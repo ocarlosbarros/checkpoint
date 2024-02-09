@@ -1,13 +1,78 @@
+# Visual Studio files
+.vscode/
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Rider files
+.idea/
+*.sln.iml
+riderModule.iml
+
 # User-specific files
 *.suo
 *.user
-*.userosscache
-*.sln.docstates
+*.suo
+*.user
+*.userprefs
 
-# Visual Studio Code files
-.vs/
-src/checkpoint/obj/
-src/checkpoint/obj/Debug/
-src/checkpoint/bin
-src/checkpoint/Data/*
+# Compiled output
+bin/
+obj/
 
+# NuGet Packages
+packages/
+
+# Visual Studio Installer files
+Installer/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# SQLite database files
+*.sqlite
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Tye
+.tye/
+
+# User-specific files
+*.suo
+*.user
+*.suo
+*.user
+*.suo
+*.userprefs
+
+# Sass files
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Caches
+/_ReSharper.Caches/
