@@ -12,7 +12,7 @@
 
 <!-- BELOW CHANGE THE PROJECT NAME AND THE PATH TO A LOCAL IMAGE REPRESENTING THE PROJECT PROJECT -->
 
-Check Point([./src/www_root/_imgs/CheckPoint-Header.png])
+Check Point([./src/wwwroot/_imgs/check-point-header.png])
 
 </div>
 
@@ -34,16 +34,16 @@ Check Point([./src/www_root/_imgs/CheckPoint-Header.png])
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper nunc non vehicula dignissim. Duis id leo mauris. Pellentesque molestie facilisis nunc, nec scelerisque est congue a. 
 
-<p align="right"><a href="#check_point">back to top</a></p>
+<p align="right"><a href="#check-point">back to top</a></p>
 
 ##  :heavy_check_mark: Features 
 
 
-<p align="right"><a href="#check_point">back to top</a></p>
+<p align="right"><a href="#check-point">back to top</a></p>
 
 ##  :camera: Screenshots 
 
-<p align="right"><a href="#check_point">back to top</a></p>
+<p align="right"><a href="#check-point">back to top</a></p>
 
 <!-- ends first block of content -->
 
@@ -57,7 +57,7 @@ This project was built with .NET Core 8.0.
     - .NET Core 8.0
     - ASP.NET Core 8.0
 
-<p align="right"><a href="#check_point">back to top</a></p>
+<p align="right"><a href="#check-point">back to top</a></p>
 
 <!-- ends second block of content -->
 
@@ -67,7 +67,7 @@ These instructions will allow you to get a copy of the project on your local mac
 
 ##  :warning: Requirements 
 
-<p align="right"><a href="#check_point">back to top</a></p>
+<p align="right"><a href="#check-point">back to top</a></p>
 
 ##  :gear: Run Application
 
@@ -95,21 +95,21 @@ dotnet run
 ```
 
 
-<p align="right"><a href="#check_point">back to top</a></p>
+<p align="right"><a href="#check-point">back to top</a></p>
 
 #  :test_tube: Tests
 
 To run tests, run the following command
 
-<p align="right"><a href="#check_point">back to top</a></p>
+<p align="right"><a href="#check-point">back to top</a></p>
 
 #   :page_facing_up: License 
 
-Project Name is [LICENSE_TYPE] Licensed. See ```LICENSE.md``` for more information.
+Project Name is MIT Licensed. See ```LICENSE.md``` for more information.
 
 <br/>
 
-<p align="right"><a href="#check_point">back to top</a></p>
+<p align="right"><a href="#check-point">back to top</a></p>
 
 
 # :octocat: Developers 
@@ -128,9 +128,9 @@ Developed with 💜 by Carlos Barros
 <div align="left">
     <a href="https://www.linkedin.com/in/ocarlosbarros" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=badge&logo=linkedin&logoColor=white" target="_blank"></a>
     <a href = "mailto:carlos_dbs@hotmail.com"><img src="https://img.shields.io/badge/Outlook-0078D4?style=badge&logo=microsoft-outlook&logoColor=white" target="_blank"></a>
-    <a href="https://www.instagram.com/ocarlosbarrosdev" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=badge&logo=instagram&logoColor=white" target="_blank"></a>
+    <a href="https://www.instagram.com/o_carlosbarrosdev" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=badge&logo=instagram&logoColor=white" target="_blank"></a>
     <a href="https://www.youtube.com/channel/UC1xY9hXr4h_77rfKKk-i3Vg" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?style=badge&logo=youtube&logoColor=white" target="_blank"></a>
 </div>
 
-<p align="right"><a href="#check_point">back to top</a></p>
+<p align="right"><a href="#check-point">back to top</a></p>
 
