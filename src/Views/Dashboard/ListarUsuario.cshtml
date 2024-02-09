@@ -1,0 +1,47 @@
+@using CheckPoint.Models;
+@{
+
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    var quantidade = ViewBag.quantidade;
+}
+<section>
+    <h2>Listar Usuários</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Gênero</th>
+                <th scope="col">Data de nascimento</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Permissão</th>
+                <th scope="col">Email</th>
+                <th scope="col">Senha</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in ViewData["usuariosList"] as List<Usuario>)
+            {
+                
+                <tr>
+                    <td>@usuario.ID</td>
+                    <td>@usuario.Nome</td>
+                    <td>@usuario.Genero</td>
+                    <td>@usuario.DataNascimento</td>
+                    <td>@usuario.Endereco</td>
+                    <td>@usuario.Telefone</td>
+                    <td>@usuario.Permissao</td>
+                    <td>@usuario.Email</td>
+                    <td>@usuario.Senha</td>
+                </tr>
+            }
+            <tr>
+                    <th scope="col">Total Usuarios Cadastrados</th>
+                    @{
+                    }
+                    <th scope="row" colspan="8">@quantidade</th>
+            </tr>
+            </tbody>
+    </table>
+</section>
