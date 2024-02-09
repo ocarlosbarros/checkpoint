@@ -12,7 +12,7 @@
 
 <!-- BELOW CHANGE THE PROJECT NAME AND THE PATH TO A LOCAL IMAGE REPRESENTING THE PROJECT PROJECT -->
 
-[Check Point](./src/wwwroot/_imgs/check-point-header.png)
+![Check Point](./src/wwwroot/_imgs/check-point-header.png)
 
 </div>
 
