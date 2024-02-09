@@ -7,7 +7,7 @@
 
 <!-- CHANGE ocarlosbarros AND Check Point IN ALL LINK LOCATION -->
 
-[![ocarlosbarros - Check Point](https://img.shields.io/static/v1?label=ocarlosbarros&message=checkpoint&color=642076f&style=for-the-badge&logo=github)](https://github.com/ocarlosbarros/checkpoint "Go to GitHub repo")
+[![ocarlosbarros - Check Point](https://img.shields.io/static/v1?label=ocarlosbarros&message=checkpoint&color=642076&style=for-the-badge&logo=github)](https://github.com/ocarlosbarros/checkpoint "Go to GitHub repo")
 
 <!-- BADGES OF STATUS IN DEVELOPEMNT AND LICENSE MIT -->
 <img src="http://img.shields.io/static/v1?label=status&message=in%20development&color=642076&style=for-the-badge"/>
