@@ -7,9 +7,6 @@ namespace CheckPoint.Controllers
 {
     public class LoginController : Controller
     {
-        #region "Import" repositories
-        private UsuarioRepository _usuarioRepository = new UsuarioRepository();
-        #endregion
         public const string SessionEmail = "_EMAIL";
         public const string SessionUsuario = "_USUARIO";
         [HttpGet]
@@ -18,7 +15,7 @@ namespace CheckPoint.Controllers
             return View();
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult Login(IFormCollection frmLogin)
         {
             var email = frmLogin["email"];
@@ -44,7 +41,7 @@ namespace CheckPoint.Controllers
                         }
             }   
             return RedirectToAction("CadastrarUsuario", "Usuario");
-        }
+        }*/
 
         public IActionResult Logout() 
         {
