@@ -1,0 +1,19 @@
+version: '3.7'
+  
+services: 
+  mssql:
+    image:  mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql_checkpoint
+    ports:
+      - '1433:1433'
+    environment:
+      - ACCEPT_EULA = "Y"
+      - MSQL_PID:Developer
+      - MSSQL_SA_PASSWORD = "Z&9MB7jq"
+    volumes:
+      - checkpoint_data:/var/opt/mssql
+
+volumes: 
+  checkpoint_data:
+
+    
