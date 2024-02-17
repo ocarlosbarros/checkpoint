@@ -1,8 +1,11 @@
 ﻿using System;
+using CheckPoint.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace CheckPoint
 {
@@ -11,6 +14,11 @@ namespace CheckPoint
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .Build();
+            
+            services.AddDbContext<CheckPointContext>(options => options.UseSqlServer(configuration.GetConnectionString("CheckPointDatabase")));
             
             services.AddSession(
                 options => 
