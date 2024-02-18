@@ -76,3 +76,6 @@ artifacts/
 
 # Caches
 /_ReSharper.Caches/
+
+# Application sensitive files
+appsettings.json
