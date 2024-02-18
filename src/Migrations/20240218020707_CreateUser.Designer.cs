@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CheckPoint.Migrations
 {
     [DbContext(typeof(CheckPointContext))]
-    [Migration("20240217013858_CreateUser")]
+    [Migration("20240218020707_CreateUser")]
     partial class CreateUser
     {
         /// <inheritdoc />
