@@ -12,8 +12,8 @@ namespace CheckPoint.Controllers
     public class UsuarioController : Controller
     {
         #region "Imports" do Repository
-        private UsuarioRepository usuarioRepository = new UsuarioRepository();
-        private ComentarioRepository comentarioRepository = new ComentarioRepository();
+        /*private UsuarioRepository usuarioRepository = new UsuarioRepository();
+        private ComentarioRepository comentarioRepository = new ComentarioRepository();*/
         
         private const string SESSION_EMAIL = "_EMAIL";
         private const string SESSION_USUARIO = "_USUARIO";
@@ -43,7 +43,9 @@ namespace CheckPoint.Controllers
 
             );//Fim do construtor
             usuario.Permissao = (EnumPermissao) Enum.Parse(typeof(EnumPermissao),frmCadastrarUsuario["permissao"]);
+            /*
             usuarioRepository.Cadastrar(usuario);
+            */
 
             ViewBag.titulo = "Cadastro";
             return RedirectToAction("Index", "Home");
@@ -68,7 +70,9 @@ namespace CheckPoint.Controllers
             );
             comentario.Usuario = usuario;
 
+            /*
             comentarioRepository.AdicionarComentario(comentario);
+            */
             return View();
         }
         #endregion
