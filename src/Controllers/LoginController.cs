@@ -1,6 +1,8 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CheckPoint.Enums;
+using CheckPoint.Interfaces;
 using CheckPoint.Repository;
 
 namespace CheckPoint.Controllers
@@ -9,9 +11,24 @@ namespace CheckPoint.Controllers
     {
         public const string SessionEmail = "_EMAIL";
         public const string SessionUsuario = "_USUARIO";
+        
         [HttpGet]
         public IActionResult Login()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login([FromServices] IUserService userService,IFormCollection frmLogin)
+        {
+            var email = frmLogin["email"];
+            var password = frmLogin["senha"];
+
+            var user = userService.GetUserBy(email, password);
+            
+            if (user == null)
+                return RedirectToAction("CadastrarUsuario", "Usuario");
+            
             return View();
         }
 
