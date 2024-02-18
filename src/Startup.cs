@@ -1,11 +1,15 @@
 ﻿using System;
-using CheckPoint.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+
+using CheckPoint.Context;
+using CheckPoint.Interfaces;
+using CheckPoint.Services;
+using CheckPoint.Repository;
 
 namespace CheckPoint
 {
@@ -19,7 +23,8 @@ namespace CheckPoint
                 .Build();
             
             services.AddDbContext<CheckPointContext>(options => options.UseSqlServer(configuration.GetConnectionString("CheckPointDatabase")));
-            
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddSession(
                 options => 
                 {
