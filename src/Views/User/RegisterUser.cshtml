@@ -1,7 +1,6 @@
-@model CheckPoint.Models.Usuario
 @using CheckPoint.Enums;
 <section class="full-screen">
-    <form method="POST" action='@Url.Action("CadastrarUsuario", "Usuario")'>
+    <form method="POST" action='@Url.Action("RegisterUser", "User")'>
         <div>
             <label for="lbl-nome">Nome:</label>
             <input type="text" name="nome"  minlength="1" maxlength="80" required/>
@@ -29,7 +28,7 @@
             <input type="tel" name="telefone" required/>
         </div>
         <div class="form-group col-sm-2">
-            <select name="permissao" asp-for="Permissao" asp-items="Html.GetEnumSelectList<EnumPermissao>()" class="form-control"></select>
+            <select name="permissao" asp-items="Html.GetEnumSelectList<EnumPermission>()" class="form-control"></select>
         </div>
 
         <div>

@@ -27,7 +27,7 @@ namespace CheckPoint.Controllers
             var user = userService.GetUserBy(email, password);
             
             if (user == null)
-                return RedirectToAction("CadastrarUsuario", "Usuario");
+                return RedirectToAction("RegisterUser", "User");
             
             return View();
         }
@@ -42,7 +42,7 @@ namespace CheckPoint.Controllers
 
             if(usuario != null && usuario.Senha.Equals(senha))
             {
-                if ( usuario.Permissao.Equals(EnumPermissao.ADMNISTRADOR))
+                if ( usuario.Permission.Equals(EnumPermission.ADMNISTRADOR))
                     {
                         HttpContext.Session.SetString(SessionEmail, email);
                         HttpContext.Session.SetString(SessionUsuario, usuario.Nome); 
@@ -54,10 +54,10 @@ namespace CheckPoint.Controllers
                             HttpContext.Session.SetString(SessionEmail, email);
                             HttpContext.Session.SetString(SessionUsuario, usuario.Nome); 
                             
-                            return RedirectToAction("CadastrarComentario", "Usuario");
+                            return RedirectToAction("RegisterComment", "Usuario");
                         }
             }   
-            return RedirectToAction("CadastrarUsuario", "Usuario");
+            return RedirectToAction("RegisterUser", "Usuario");
         }*/
 
         public IActionResult Logout() 
