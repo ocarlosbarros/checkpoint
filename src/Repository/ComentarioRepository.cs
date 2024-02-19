@@ -10,7 +10,7 @@ namespace CheckPoint.Repository
         private const string PATH = "Data/Comentarios.csv";
         private const string PATH_INDEX = "Data/Comentario_Id.csv";
         private uint controleID = 0;
-        private List<Comentario> comentariosList = new List<Comentario>();
+        private List<Comment> comentariosList = new List<Comment>();
         
         #region Construtor
         public ComentarioRepository()
@@ -28,27 +28,27 @@ namespace CheckPoint.Repository
             controleID = linhaAtual;
         }
         #endregion
-        public bool AdicionarComentario(Comentario comentario)
+        public bool AdicionarComentario(Comment comment)
         {
             controleID++;
             File.WriteAllText(PATH_INDEX, controleID.ToString());
 
-            string linhaGravar = CriarCSV(comentario);
+            string linhaGravar = CriarCSV(comment);
 
             File.AppendAllText(PATH, linhaGravar);
             
             return true;
         }
 
-        private string CriarCSV(Comentario comentario)
+        private string CriarCSV(Comment comment)
         {
-            //comentario.dataCriacao = DateTime.Now;
-            string linha = $"ID={controleID};nome={comentario.Usuario.Nome};comentario={comentario.TextoComentario};data_criacao={comentario.DataCriacao.ToShortDateString()};status={comentario.Status}\n";
+            //comment.dataCriacao = DateTime.Now;
+            string linha = $"ID={controleID};nome={comment.User.Name};comment={comment.TextoComentario};data_criacao={comment.DataCriacao.ToShortDateString()};status={comment.Status}\n";
 
             return linha;
         }
 
-        public List<Comentario> Listar()
+        public List<Comment> Listar()
         {
             var linhas = ObterRegistrosCSV(PATH);
 
@@ -56,30 +56,30 @@ namespace CheckPoint.Repository
             {
                 if(item != "")
                 {
-                    Comentario comentario = ConverterEmObjeto(item);
-                    this.comentariosList.Add(comentario);
+                    Comment comment = ConverterEmObjeto(item);
+                    this.comentariosList.Add(comment);
                 }
             }
             return this.comentariosList;
         }
 
-        private Comentario ConverterEmObjeto(string registro)
+        private Comment ConverterEmObjeto(string registro)
         {
-            Usuario usuario = new Usuario();
-            Comentario comentario = new Comentario();
-            comentario.Usuario = usuario;
+            User usuario = new User();
+            Comment comment = new Comment();
+            comment.User = usuario;
             
             Console.WriteLine("REGISTRO" + registro);
-            comentario.ID = int.Parse(ExtrairCampo("ID", registro));
-            comentario.Usuario.Nome = ExtrairCampo("nome", registro);
-            comentario.TextoComentario = ExtrairCampo("comentario", registro);
-            comentario.DataCriacao = DateTime.Parse(ExtrairCampo("data_criacao", registro));
-            comentario.Status = bool.Parse(ExtrairCampo("status", registro));
+            comment.ID = int.Parse(ExtrairCampo("ID", registro));
+            comment.User.Name = ExtrairCampo("nome", registro);
+            comment.TextoComentario = ExtrairCampo("comment", registro);
+            comment.DataCriacao = DateTime.Parse(ExtrairCampo("data_criacao", registro));
+            comment.Status = bool.Parse(ExtrairCampo("status", registro));
 
-            return comentario;
+            return comment;
         }
 
-        public Comentario BuscarPor(int id)
+        public Comment BuscarPor(int id)
         {
             foreach (var item in ObterRegistrosCSV(PATH))
             {
@@ -91,16 +91,16 @@ namespace CheckPoint.Repository
             return null;
         }
     
-        public bool Editar(Comentario comentario)
+        public bool Editar(Comment comment)
         {
             var comentariosRecuperados = ObterRegistrosCSV(PATH);
-            var comentarioEditado = CriarCSV(comentario);
+            var comentarioEditado = CriarCSV(comment);
             var linhaUsuario = -1;
             var resultado = false;
 
             for(int i = 0; i < comentariosRecuperados.Length; i++)
             {
-                if (comentario.ID.ToString().Equals(ExtrairCampo("ID", comentariosRecuperados[i])))
+                if (comment.ID.ToString().Equals(ExtrairCampo("ID", comentariosRecuperados[i])))
                 {
                     linhaUsuario = i;
                     resultado = true;
@@ -137,16 +137,16 @@ namespace CheckPoint.Repository
            return resultado;  
         }
 
-        public bool Aprovar(Comentario comentario)
+        public bool Aprovar(Comment comment)
         {
             var comentariosRecuperados = ObterRegistrosCSV(PATH);
-            var comentarioAprovado = CriarCSV(comentario);
+            var comentarioAprovado = CriarCSV(comment);
             var linhaComentario = -1;
             var resultado = false;
 
             for(int i = 0; i < comentariosRecuperados.Length; i++)
             {
-                if (comentario.ID.ToString().Equals(ExtrairCampo("ID", comentariosRecuperados[i])))
+                if (comment.ID.ToString().Equals(ExtrairCampo("ID", comentariosRecuperados[i])))
                 {
                     linhaComentario = i;
                     resultado = true;

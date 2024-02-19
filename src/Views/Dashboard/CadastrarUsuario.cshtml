@@ -1,12 +1,12 @@
 @using CheckPoint.Enums
-@model EnumPermissao
+@model EnumPermission
 
 @{
   Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 <section class="full-screen">
     <h2>Cadastrar Usuário</h2>
-    <form method="POST" action='@Url.Action("CadastrarUsuario", "Usuario")'>
+    <form method="POST" action='@Url.Action("RegisterUser", "User")'>
         <div>
             <label for="lbl-nome">Nome:</label>
             <input type="text" name="nome"  minlength="1" maxlength="80" required/>
@@ -34,7 +34,7 @@
             <input type="tel" name="telefone" required/>
         </div>
         <div>
-            <select name="permissao" asp-items="Html.GetEnumSelectList<EnumPermissao>()"></select>
+            <select name="permissao" asp-items="Html.GetEnumSelectList<EnumPermission>()"></select>
         </div>
 
         <div>
