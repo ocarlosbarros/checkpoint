@@ -17,12 +17,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var comentario in ViewData["comentariosList"] as List<Comentario>)
+            @foreach (var comentario in ViewData["comentariosList"] as List<Comment>)
             {
                 <tr>
                     <td>@comentario.ID</td>
-                    <td>@comentario.Usuario.Nome</td>
-                    <td>@comentario.Usuario.Nome</td>
+                    <td>@comentario.User.Name</td>
+                    <td>@comentario.User.Name</td>
                     <td>@comentario.TextoComentario</td>
                     <td>@comentario.DataCriacao</td>
                     @{
