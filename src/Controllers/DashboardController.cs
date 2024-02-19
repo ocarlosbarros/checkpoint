@@ -11,19 +11,11 @@ namespace CheckPoint.Controllers
 {
     public class DashboardController : Controller
     {
-        #region "Imports" do Repository
-            private UsuarioRepository usuarioRepository = new UsuarioRepository();
-            private ComentarioRepository comentarioRepository = new ComentarioRepository();
-
-            private const string SESSION_EMAIL = "_EMAIL";
-            private const string SESSION_USUARIO = "_USUARIO";
-            
-        #endregion
-
+        
         [HttpGet]
         public IActionResult Index()
         {
-            ViewData["User"] = HttpContext.Session.GetString(SESSION_USUARIO);
+            ViewData["User"] = HttpContext.Session.GetString("SESSION_USUARIO");
             return View();
         }
 
@@ -36,20 +28,20 @@ namespace CheckPoint.Controllers
         [HttpPost]
         public IActionResult CadastrarUsuario(IFormCollection frmCadastrarUsuario)
         {
-            Usuario usuario = new Usuario
+            User usuario = new User
             (
-            nome: frmCadastrarUsuario["nome"],
-            genero: frmCadastrarUsuario["genero"],
-            dataNascimento: DateTime.Parse(frmCadastrarUsuario["dataNascimento"]),
-            endereco: frmCadastrarUsuario["endereco"],
+            name: frmCadastrarUsuario["nome"],
+            gender: frmCadastrarUsuario["genero"],
+            dateOfBirth: DateTime.Parse(frmCadastrarUsuario["dataNascimento"]),
+            address: frmCadastrarUsuario["endereco"],
             email: frmCadastrarUsuario["email"],
-            telefone: frmCadastrarUsuario["telefone"],
-            senha:frmCadastrarUsuario["senha"]
+            telephone: frmCadastrarUsuario["telefone"],
+            password:frmCadastrarUsuario["senha"]
 
             );//Fim do construtor
-            usuario.Permissao = (EnumPermissao) Enum.Parse(typeof(EnumPermissao),frmCadastrarUsuario["permissao"]);
+            usuario.Permission = (EnumPermission) Enum.Parse(typeof(EnumPermission),frmCadastrarUsuario["permissao"]);
 
-            usuarioRepository.Cadastrar(usuario);
+            //useRepository.Cadastrar(usuario);
 
             ViewBag.titulo = "Cadastro";
             return View();
@@ -60,7 +52,7 @@ namespace CheckPoint.Controllers
         public IActionResult ListarUsuario()
         {
 
-            ViewData["usuariosList"] = usuarioRepository.Listar();
+           // ViewData["usuariosList"] = usuarioRepository.Listar();
            
             return View();
         }
@@ -68,7 +60,7 @@ namespace CheckPoint.Controllers
         [HttpGet]
         public IActionResult EditarExcluirUsuario()
         {
-            ViewData["usuariosList"] = usuarioRepository.Listar();
+            //ViewData["usuariosList"] = usuarioRepository.Listar();
 
             return View();
         }
@@ -76,9 +68,9 @@ namespace CheckPoint.Controllers
         [HttpGet]
         public IActionResult EditarUsuario(int id)
         {
-            Usuario usuarioEditar = usuarioRepository.BuscarPor(id);
+            //Usuario usuarioEditar = usuarioRepository.BuscarPor(id);
 
-            if(usuarioEditar != null)
+            /*if(usuarioEditar != null)
             {
                 ViewBag.usuario = usuarioEditar;
             }else
@@ -86,28 +78,28 @@ namespace CheckPoint.Controllers
                     TempData["mensagem"] = "Não a usuário a ser editado!";
 
                     return RedirectToAction("ListarUsuario");
-                }
+                }*/
             
             return View();
         }
         [HttpPost]
         public IActionResult Salvar(IFormCollection frmEditarUsuario)
         {
-            Usuario usuarioEditar = new Usuario
+            User usuarioEditar = new User
             (
                 id:int.Parse(frmEditarUsuario["id"]),
-                nome: frmEditarUsuario["nome"],
-                genero: frmEditarUsuario["genero"],
-                dataNascimento: DateTime.Parse(frmEditarUsuario["dataNascimento"]),
-                endereco: frmEditarUsuario["endereco"],
-                permissao: frmEditarUsuario["permissao"],
+                name: frmEditarUsuario["nome"],
+                gender: frmEditarUsuario["genero"],
+                dateOfBirth: DateTime.Parse(frmEditarUsuario["dataNascimento"]),
+                address: frmEditarUsuario["endereco"],
+                permission: frmEditarUsuario["permissao"],
                 email: frmEditarUsuario["email"],
-                telefone: frmEditarUsuario["telefone"],
-                senha:frmEditarUsuario["senha"]
+                telephone: frmEditarUsuario["telefone"],
+                password:frmEditarUsuario["senha"]
             );
-            usuarioEditar.Permissao = (EnumPermissao) Enum.Parse(typeof(EnumPermissao),frmEditarUsuario["permissao"]);
+            usuarioEditar.Permission = (EnumPermission) Enum.Parse(typeof(EnumPermission),frmEditarUsuario["permissao"]);
 
-            usuarioRepository.Editar(usuarioEditar);
+            //usuarioRepository.Editar(usuarioEditar);
 
             return RedirectToAction("ListarUsuario");
         }
@@ -116,7 +108,7 @@ namespace CheckPoint.Controllers
         public IActionResult ExcluirUsuario(int id)
         {
 
-            usuarioRepository.Excluir(id);
+            //usuarioRepository.Excluir(id);
             
                     
             return RedirectToAction("ListarUsuario");
@@ -131,15 +123,15 @@ namespace CheckPoint.Controllers
         [HttpPost]
         public IActionResult CadastrarComentario(IFormCollection frmAddComentario)
         {
-            Usuario usuario = new Usuario();
-            usuario.Nome = frmAddComentario["nome"];
+            User usuario = new User();
+            usuario.Name = frmAddComentario["nome"];
             
-            Comentario comentario = new Comentario(
-                textoComentario: frmAddComentario["comentario"]
+            Comment comment = new Comment(
+                textoComentario: frmAddComentario["comment"]
             );
-            comentario.Usuario = usuario;
+            comment.User = usuario;
 
-            comentarioRepository.AdicionarComentario(comentario);
+            //comentarioRepository.AdicionarComentario(comment);
 
             return RedirectToAction("ListarComentario");
         }
@@ -147,7 +139,7 @@ namespace CheckPoint.Controllers
         [HttpGet]
         public IActionResult ListarComentario()
         {
-            ViewData["comentariosList"] = comentarioRepository.Listar();
+            //ViewData["comentariosList"] = comentarioRepository.Listar();
 
             return View();
         }
@@ -155,7 +147,7 @@ namespace CheckPoint.Controllers
         [HttpGet]
         public IActionResult EditarExcluirComentario()
         {
-            ViewData["comentariosList"] = comentarioRepository.Listar();
+            //ViewData["comentariosList"] = comentarioRepository.Listar();
 
             return View();
         }
@@ -164,11 +156,11 @@ namespace CheckPoint.Controllers
         public IActionResult EditarComentario(int id)
         {
             
-            Comentario comentarioEditar = comentarioRepository.BuscarPor(id);
+            //Comment commentEditar = comentarioRepository.BuscarPor(id);
 
-            if(comentarioEditar != null)
+            if("commentEditar" != null)
             {
-                ViewBag.comentario = comentarioEditar;
+                ViewBag.comentario = "commentEditar";
             }else
                 {
                     TempData["mensagem"] = "Não a comentário a ser editado!";
@@ -182,17 +174,17 @@ namespace CheckPoint.Controllers
         [HttpPost]
          public IActionResult SalvarComentario(IFormCollection frmEditarComentario)
         {
-            Usuario usuario = new Usuario();
-            Comentario comentarioEditar = new Comentario();
-            comentarioEditar.Usuario = usuario;
+            User usuario = new User();
+            Comment commentEditar = new Comment();
+            commentEditar.User = usuario;
 
-            comentarioEditar.ID = int.Parse(frmEditarComentario["id"]);
-            comentarioEditar.Usuario.Nome = frmEditarComentario["nome"];
-            comentarioEditar.TextoComentario = frmEditarComentario["comentario"];
-            comentarioEditar.DataCriacao = DateTime.Parse(DateTime.Now.ToShortDateString());
-            comentarioEditar.Status = false;
+            commentEditar.ID = int.Parse(frmEditarComentario["id"]);
+            commentEditar.User.Name = frmEditarComentario["nome"];
+            commentEditar.TextoComentario = frmEditarComentario["comment"];
+            commentEditar.DataCriacao = DateTime.Parse(DateTime.Now.ToShortDateString());
+            commentEditar.Status = false;
             
-            comentarioRepository.Editar(comentarioEditar);
+            //comentarioRepository.Editar(commentEditar);
 
             return RedirectToAction("ListarComentario");
         }
@@ -201,7 +193,7 @@ namespace CheckPoint.Controllers
         public IActionResult ExcluirComentario(int id)
         {
 
-            comentarioRepository.Excluir(id);
+            //comentarioRepository.Excluir(id);
             
                     
             return RedirectToAction("ListarComentario");
@@ -211,7 +203,7 @@ namespace CheckPoint.Controllers
         [HttpGet]
         public IActionResult AprovarComentario()
         {
-            ViewData["comentariosList"] = comentarioRepository.Listar();
+            //ViewData["comentariosList"] = comentarioRepository.Listar();
 
 
             return View();
@@ -220,12 +212,12 @@ namespace CheckPoint.Controllers
         [HttpGet]
         public IActionResult AprovarReprovar(int id)
         {
-            Comentario comentarioAprovar = comentarioRepository.BuscarPor(id);
-            Usuario usuario = new Usuario();
+            //Comment commentAprovar = comentarioRepository.BuscarPor(id);
+            User usuario = new User();
             
-            usuario.AprovarReprovarComentario(comentarioAprovar);
+            //usuario.AprovarReprovarComentario(commentAprovar);
             
-            comentarioRepository.Aprovar(comentarioAprovar);
+            //comentarioRepository.Aprovar(commentAprovar);
 
             return RedirectToAction("ListarComentario");
         }
