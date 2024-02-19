@@ -2,25 +2,25 @@
 
 @{
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
-    Comentario comentario = ViewBag.comentario;
-    string dataCriacao = comentario.DataCriacao.ToString("yyyy-MM-dd");
+    Comment comment = ViewBag.comentario;
+    string dataCriacao = comment.DataCriacao.ToString("yyyy-MM-dd");
 }
 <section class="full-screen">
     <h2>Editar Comentário</h2>
     <form method="POST" action='@Url.Action("SalvarComentario", "Dashboard")'>
          <div>
-            <input type="hidden" name="id" value="@comentario.ID" minlength="1" maxlength="80" required/>
+            <input type="hidden" name="id" value="@comment.ID" minlength="1" maxlength="80" required/>
         </div>
         <div>
             <label for="lbl-nome">Nome:</label>
-            <input type="text" name="nome"  value="@comentario.Usuario.Nome"minlength="1" maxlength="80" required/>
+            <input type="text" name="nome"  value="@comment.User.Name"minlength="1" maxlength="80" required/>
         </div>
        
         <div>
-            <label for="comentario">Comentário:</label>
+            <label for="comment">Comentário:</label>
         </div>
         <div>
-            <textarea name="comentario" value="@comentario.TextoComentario"cols="30" rows="10">
+            <textarea name="comment" value="@comment.TextoComentario"cols="30" rows="10">
             </textarea>
         </div>
 

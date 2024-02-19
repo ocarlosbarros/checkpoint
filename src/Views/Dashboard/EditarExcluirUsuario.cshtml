@@ -20,19 +20,19 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var usuario in ViewData["usuariosList"] as List<Usuario>)
+            @foreach (var usuario in ViewData["usuariosList"] as List<User>)
             {
                 <tr>
-                    <td>@usuario.ID</td>
-                    <td>@usuario.Nome</td>
-                    <td>@usuario.Genero</td>
-                    <td>@usuario.DataNascimento</td>
-                    <td>@usuario.Endereco</td>
-                    <td>@usuario.Telefone</td>
-                    <td>@usuario.Permissao</td>
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Name</td>
+                    <td>@usuario.Gender</td>
+                    <td>@usuario.DateOfBirth</td>
+                    <td>@usuario.Address</td>
+                    <td>@usuario.Telephone</td>
+                    <td>@usuario.Permission</td>
                     <td>@usuario.Email</td>
-                    <td>@usuario.Senha</td>
-                    <td><a href="/Dashboard/EditarUsuario?id=@usuario.ID">Editar</a> | <a href="/Dashboard/ExcluirUsuario?id=@usuario.ID">Excluir</a></td>
+                    <td>@usuario.Password</td>
+                    <td><a href="/Dashboard/EditarUsuario?id=@usuario.Id">Editar</a> | <a href="/Dashboard/ExcluirUsuario?id=@usuario.Id">Excluir</a></td>
                 </tr>
             }
         </tbody>

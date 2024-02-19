@@ -17,19 +17,19 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var comentario in ViewData["comentariosList"] as List<Comentario>)
+            @foreach (var comentario in ViewData["comentariosList"] as List<Comment>)
             {
                 <tr>
                     <td>@comentario.ID</td>
-                    <td>@comentario.Usuario.Nome</td>
-                    <td>@comentario.Usuario.Nome</td>
+                    <td>@comentario.User.Name</td>
+                    <td>@comentario.User.Name</td>
                     <td>@comentario.TextoComentario</td>
                     <td>@comentario.DataCriacao</td>
                     @{
                         var status = @comentario.Status == false ? "Reprovado" : "Aprovado"; 
                     }
                     <td>@status</td>
-                    <td><a href="/Dashboard/EditarComentario?id=@comentario.ID">Editar</a> | <a href="/Dashboard/ExcluirComentario?id=@comentario.ID">Excluir</a></td>
+                    <td><a href="/Dashboard/EditarComment?id=@comentario.ID">Editar</a> | <a href="/Dashboard/ExcluirComment?id=@comentario.ID">Excluir</a></td>
                 </tr>
             }
         </tbody>
