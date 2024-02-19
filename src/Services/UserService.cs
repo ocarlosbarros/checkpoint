@@ -7,7 +7,10 @@ public class UserService : IUserService
 
     public UserService(IUserRepository userRepository) => _userRepository = userRepository;
 
-    public void CreateUser(User user) {}
+    public void CreateUser(User user)
+    {
+        _userRepository.CreateUser(user);
+    }
 
     public User GetUserBy(string email, string password)
     {
